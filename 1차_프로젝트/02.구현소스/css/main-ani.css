@@ -1,0 +1,14 @@
+/* 현대카드페이지 애니메이션 hyani.css */
+
+/* 카드 마우스엔터 애니 */
+@keyframes card-mouseenter-ani {
+  to {
+    scale: 1.15;
+  }
+}
+@keyframes card-mouseleave-ani {
+  to {
+    scale: 1;
+  }
+}
+

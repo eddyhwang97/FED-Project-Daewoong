@@ -1,0 +1,389 @@
+@charset "utf-8";
+/* 현대카드 페이지 메인 CSS - main.css */
+
+/* 폰트 */
+@import url("https://fonts.googleapis.com/css2?family=Dongle&family=Edu+AU+VIC+WA+NT+Pre:wght@400..700&family=Gasoek+One&family=Gugi&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Jua&family=K2D:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Sunflower:wght@300&display=swap");
+/* 외부css 링크 모음 */
+@import url(./reset.css);
+@import url(./common.css);
+@import url(./grid_12_flex.css);
+@import url(./root.css);
+@import url(./main-ani.css);
+/*===================================================
+메인영역 
+===================================================*/
+/* 임시 타이틀 */
+.temt-tit {
+  position: absolute;
+  color: #888;
+  font-size: 2vw;
+  text-align: center;
+  outline: none;
+}
+
+/* 전체 컨테이너 설정 */
+.container {
+  max-width: 100vw;
+  height: auto;
+}
+/* 메인 페이지 랩박스 */
+.main-wrap-box {
+  /* 부모박스 설정*/
+  position: relative;
+  max-width: 100vw;
+  height: 100vh;
+  background: var(--main-bg-color);
+}
+/* ============================================
+메인페이지 영역 시작
+============================================ */
+
+/*============== 1. 로고영역==============*/
+.logo-area {
+  height: 70px;
+}
+.logo-area .cont-box {
+  padding: 0 20px;
+}
+.logo-area .col-2 {
+  /* 로고앱솔루트의 부모로 만들어줌 */
+  position: relative;
+}
+.logo {
+  position: absolute;
+  top: 50%;
+  translate: 0 -50%;
+}
+/* 1-1. 현대카드로고 */
+.hd-logo {
+  left: 0;
+  height: 40px;
+}
+.hd-logo img {
+  height: 40px;
+}
+/* 1-2. 애플페이로고 */
+.apple-logo {
+  right: 0;
+  height: 40px;
+}
+.apple-logo a {
+  display: block;
+}
+.apple-logo img {
+  height: 40px;
+}
+
+/*================= 2. 카드선택 및 오버 영역 설정 =================*/
+
+/* 오버 내브 영역 설정*/
+.hover-area {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+}
+/* 카드 넘기는 영역 */
+.card-nav-area {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+}
+.card-nav-area .col-4 {
+  padding: 0;
+}
+/* nav-area 카드 넘기는 영역 공통 설정 */
+.nav-area {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: block;
+
+  text-decoration: none;
+}
+.nav-area span {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+
+  font-family: "K2D", sans-serif;
+  font-size: 6rem;
+  text-transform: uppercase;
+  color: #fff;
+  text-shadow: 0 0 5px #000;
+}
+/* 2-1. prev-area 영역 설정 */
+.prev {
+  right: 0;
+  transition: 0.5s;
+}
+/* 언더바 가상요소 */
+.prev::after {
+  content: "";
+  position: absolute;
+  width: 70%;
+  height: 3px;
+  border-radius: 5px;
+  background: #fff;
+  box-shadow: 0 0 5px #000;
+
+  top: 100%;
+  right: 0;
+
+  transition: 0.5s;
+}
+/* 넘기는 영역 오버시 prev, 가상요소 설정 */
+.prev-nav-area:hover .prev,
+.prev-nav-area:hover .prev::after {
+  right: 30%;
+  rotate: z -30deg;
+  transform-origin: right top;
+}
+
+/* 2-3. next-area 영역 설정 */
+.next {
+  left: 0;
+  transition: 0.5s;
+}
+/* 언더바 가상요소 */
+.next::after {
+  content: "";
+  position: absolute;
+  width: 70%;
+  height: 3px;
+  border-radius: 5px;
+  background: #fff;
+  box-shadow: 0 0 5px #000;
+
+  top: 100%;
+  left: 0;
+
+  transition: 0.5s;
+}
+/* 넘기는 영역 오버시 next, 가상요소 설정 */
+.next-nav-area:hover .next,
+.next-nav-area:hover .next::after {
+  left: 30%;
+  rotate: z 30deg;
+  transform-origin: left top;
+}
+
+/* 2-2. 카드선택 영역 설정 */
+.card-select-area {
+  perspective: 500px;
+}
+/* 카드이름 */
+.card_name {
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+/* 카드 이름 꾸밈 */
+.card p {
+  font-size: 50px;
+  fill: #00a414;
+  color: #00a414;
+  text-shadow: 0 0 5px #000;
+  font-family: "josefin Sans", sans-serif;
+  font-weight: bold;
+  -webkit-text-stroke: 1px #000;
+}
+
+/* 카드 선택영역 포지션 */
+.card {
+  position: absolute;
+  top: calc(50% - var(--main-card-height) / 2);
+  left: calc(50% - var(--main-card-width) / 2);
+
+  width: var(--main-card-width);
+  height: var(--main-card-height);
+  transition: 0.3s;
+  /* 3d스타일 */
+  transform-style: preserve-3d;
+  animation: card-mouseleave-ani 0.3s ease-in-out forwards;
+}
+/* 카드 hover 효과 */
+.card:hover {
+  animation: card-mouseenter-ani 0.3s ease-in-out forwards;
+}
+
+.card a {
+  display: contents;
+}
+
+.card span {
+  position: absolute;
+  width: var(--main-card-width);
+  height: var(--main-card-height);
+  /*  배경공통  */
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
+
+/* 메인카드 3d 작업 */
+/* 카드 앞면 */
+.card span:nth-child(1) {
+  background-image: url(../imgs/navercard/img_navercard_1.png);
+  /* z축이동 ->두께만들기*/
+  /* transform : translateZ(20px); */
+  translate: 0 0 5px;
+}
+/* 카드 뒷면 */
+.card span:nth-child(2) {
+  background-image: url(../imgs/navercard/img_card_NVHC_graffiti_back.png);
+  /* background-color: var(--main-card-back-color); */
+  /* border-radius: 15px; */
+  /* z축 이동하기 ->두께 만들기*/
+  translate: 0 0 -5px;
+
+  /* 뒤집기 */
+  rotate: Y 180deg;
+}
+/* 카드 오른쪽면 */
+.card span:nth-child(3) {
+  background-color: var(--main-card-side-color);
+  /* 오른쪽끝으로 이동 */
+  right: -5px;
+  /* 가로크기 재설정 */
+  width: var(--main-card-side-size);
+  /* 높이 재설정 */
+  top: 62px;
+  height: calc(var(--main-card-height) - 24px);
+
+  /* y축회전 90도 */
+  rotate: y 90deg;
+}
+/* 카드 왼쪽면 */
+.card span:nth-child(4) {
+  background-color: var(--main-card-side-color);
+  /* 가로크기 재설정 */
+  width: var(--main-card-side-size);
+  /* 높이 재설정 */
+  top: 62px;
+  height: calc(var(--main-card-height) - 24px);
+
+  /* 왼쪽끝으로 이동 */
+  left: -5px;
+
+  /* y축회전 -90도 */
+  rotate: y -90deg;
+}
+/* 카드 윗사이드 */
+.card span:nth-child(5) {
+  background-color: var(--main-card-side-color);
+  /* 가로크기 재설정 */
+  width: calc(var(--main-card-width) - 24px);
+  left: 12px;
+
+  /* 세로크기 재설정 */
+  height: var(--main-card-side-size);
+
+  /* 윗쪽끝으로 이동 */
+  top: 45z px;
+
+  /* x축회전 90도 */
+  rotate: x 90deg;
+}
+/* 카드 아래사이드 */
+.card span:nth-child(6) {
+  background-color: var(--main-card-side-color);
+  /* 가로크기 재설정 */
+  width: calc(var(--main-card-width) - 24px);
+  left: 12px;
+  /* 세로크기 재설정 */
+  height: var(--main-card-side-size);
+
+  /* 아랫쪽끝으로 이동 */
+  bottom: -5px;
+
+  /* x축회전 90도 */
+  rotate: x 90deg;
+}
+
+/****** 뒤에 깔린 카드 .card:nth-child(7~9)******/
+.carddum {
+  width: 100%;
+  height: 100%;
+}
+.backcard {
+  position: absolute;
+  width: var(--main-card-width);
+  height: var(--main-card-height);
+  top: 55.3%;
+  left: 50%;
+  translate: -50% -50%;
+  box-shadow: 0 0 10px #2e2e2e;
+  border-radius: 14px;
+}
+/* 첫번째카드 */
+.carddum span:nth-child(3) {
+  background: url(../imgs/musinsacard/img_musinsacard_01.png) no-repeat
+    center/100% 100%;
+  rotate: z 4deg;
+}
+/* 두번째카드 */
+.carddum span:nth-child(2) {
+  background: url(../imgs/starbucks/img_starbuckscard_01.png) no-repeat
+    center/100% 100%;
+  rotate: z 8deg;
+}
+/* 세번째카드 */
+.carddum span:nth-child(1) {
+  background: url(../imgs/nexoncard/img_nexoncard_06.png) no-repeat center/100%
+    100%;
+  rotate: z 12deg;
+}
+
+/*===================== 3. 하단버튼영역 설정 =====================*/
+/* 하단 버튼영역 */
+.foot-area {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100px;
+}
+
+/* ========================================================
+메인페이지 영역 종료
+======================================================== */
+
+/* ============== 서브페이지 시작 ============= */
+
+/* 서브페이지 공통 */
+.sub-wrap-box {
+  max-width: 1000px;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+/* 카드 소개페이지 */
+.overlay-box {
+  padding: 20px;
+}
+
+.part {
+  width: 100%;
+  height: 600px;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+/* 카드 디테일 소개페이지 */
+.card-detail-page .contant-wrap-box1 {
+  height: auto;
+}
+.naver-top-img {
+  padding: 0;
+}
+.naver-top-img img {
+  width: 100%;
+  height: 100%;
+  border-radius: 20px;
+}
+/* 애플페이 소개페이지 */
+
+/* ============== 서브페이지 종료 ============= */
