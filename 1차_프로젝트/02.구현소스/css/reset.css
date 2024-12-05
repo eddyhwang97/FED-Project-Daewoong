@@ -6,6 +6,7 @@ html,body{
     padding: 0;
     margin: 0;
     font-family: "Noto Sans KR",sans-serif;
+    scroll-behavior: smooth;
 }
 body *{
     padding: 0;
@@ -13,6 +14,8 @@ body *{
 
     /* 공사중 */
     outline: 1px solid gray;
+
+    
 }
 .blind{
     position: absolute;

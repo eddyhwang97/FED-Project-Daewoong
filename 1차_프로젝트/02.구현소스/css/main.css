@@ -3,6 +3,7 @@
 
 /* 폰트 */
 @import url("https://fonts.googleapis.com/css2?family=Dongle&family=Edu+AU+VIC+WA+NT+Pre:wght@400..700&family=Gasoek+One&family=Gugi&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Jua&family=K2D:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Sunflower:wght@300&display=swap");
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css");
 /* 외부css 링크 모음 */
 @import url(./reset.css);
 @import url(./common.css);
@@ -200,14 +201,17 @@
 
   width: var(--main-card-width);
   height: var(--main-card-height);
-  transition: 0.3s;
   /* 3d스타일 */
   transform-style: preserve-3d;
-  animation: card-mouseleave-ani 0.3s ease-in-out forwards;
+
+  /* 트렌지션 */
+  transition: all 0.3s;
+  scale: 1;
 }
 /* 카드 hover 효과 */
 .card:hover {
-  animation: card-mouseenter-ani 0.3s ease-in-out forwards;
+  scale: 1.1;
+  transition: all 0.3s forwards;
 }
 
 .card a {
@@ -366,34 +370,39 @@
 2. 카드 소개페이지 
 ==================*/
 /* 카드소개페이지 공통 부분 */
-.overlay-box {
-  padding: 20px;
+.sub-wrap-box {
+  background-color: #eeeeee;
+  border-radius: 2rem;
 }
 
 .inbox {
   width: 100%;
   height: 600px;
-  padding: 20px;
   box-sizing: border-box;
 }
-.card-detail-page .contant-wrap-box{
+.card-detail-page .contant-wrap-box {
   height: auto;
+  /* border-radius: 2rem; */
 }
 
 /****** 카드 디테일 소개페이지 ******/
 /*2-1 카드소개 상단 영역 */
-.card-detail-top-area{
+.card-detail-top-area {
   position: relative;
 }
-
+.card-detail-top-img {
+  width: 692px;
+  height: auto;
+  margin: 0;
+}
 /* 2-1-1. 카드소개 상단 이미지 */
 .card-detail-top-img img {
- width: 692px;
- height: 656px;
+  width: 692px;
+  height: 656px;
   border-radius: 2rem;
 }
 /* 2-1-2. 카드소개 상단 텍스트 */
-.card-detail-top-txt{
+.card-detail-top-txt {
   position: absolute;
   top: 50%;
   right: 0;
@@ -401,27 +410,27 @@
   width: 250px;
 }
 
-.card-detail-top-txt ul{
+.card-detail-top-txt ul {
   list-style: none;
   line-height: 2;
 }
-.card-detail-top-txt li:nth-child(1){
+.card-detail-top-txt li:nth-child(1) {
   font-size: 1.8rem;
   font-weight: bold;
 }
-.card-detail-top-txt li:nth-child(2){
+.card-detail-top-txt li:nth-child(2) {
   font-size: 3.7rem;
   font-weight: bold;
 }
-.card-detail-top-txt li:nth-child(3){
+.card-detail-top-txt li:nth-child(3) {
   font-size: 1.8rem;
 }
-.card-detail-top-txt li:nth-child(4){
+.card-detail-top-txt li:nth-child(4) {
   font-size: 1.8rem;
 }
 
 /* 2-1-3. 카드소개 상단 연회비박스 */
-.card-detail-top-membership-box{
+.card-detail-top-membership-box {
   position: absolute;
   top: 70%;
   right: 0;
@@ -429,35 +438,393 @@
   height: 105px;
   padding: 10px;
 
-  
   font-size: 15px;
   font-weight: bold;
-  
-  border: .5px solid #737373;
+
+  border: 0.5px solid #737373;
   border-radius: 1rem;
   box-sizing: border-box;
 }
 
-.card-detail-top-membership-box ul{
+.card-detail-top-membership-box ul {
   list-style: none;
   margin-top: 0.8rem;
   max-width: 100%;
 }
-.card-detail-top-membership-box li{
+.card-detail-top-membership-box li {
   display: flex;
   line-height: 2;
+  font-family: "Noto Sans Bengali UI", sans-serif;
 }
-.card-detail-top-membership-box span{
+.card-detail-top-membership-box span {
   display: inline-block;
   opacity: 60%;
   flex: 1 1 auto;
-  
 }
-.card-detail-top-membership-box p{
+.card-detail-top-membership-box p {
   display: inline-block;
-flex: 1 1 auto;
+  flex: 1 1 auto;
+}
+
+/* *****오버레이 영역 ******/
+/* 오버레이 박스 */
+.overlay-box {
+  min-width: 960px;
+  margin: 0 auto;
+  margin-top: 40px;
+  padding: 40px;
+  box-sizing: border-box;
+  background: #fff;
+  border-radius: 2rem;
+}
+.card-detail-top-area::after {
+  position: absolute;
+  /* 가상요소에 font awsome적용 성공! */
+  content: "\f0d7";
+  font-family: FontAwesome;
+  font-size: 4rem;
+  line-height: 35px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/********* 카드소개페이지 1영역 *********/
+.overlay-box .card-part1 {
+  text-align: center;
+  height: auto;
+}
+.overlay-box .card-part1 p {
+  font-size: 4rem;
+  font-weight: bold;
+  line-height: 5rem;
+}
+.overlay-box .card-part1 img {
+  width: 230px;
+  height: 364px;
+}
+
+/* 카드 그리드 */
+.card-detail-grid {
+  display: grid;
+  max-width: 880px;
+  margin: 0 auto;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 7rem 7rem;
+
+  padding: 7rem 0;
+}
+/* 그리드 각 박스 공통 */
+.card-detail-grid > div {
+  /* 부모자격  */
+  position: relative;
+  height: auto;
+  vertical-align: middle;
+
+  transition: 0.4s;
+}
+.card-detail-grid > div:hover {
+  scale: 1.1;
+  transition: 0.4s;
+}
+.card-detail-grid span {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  font-size: 1.7rem;
+  line-height: 5rem;
+  font-weight: bold;
+}
+
+/********* 카드소개페이지 2영역 *********/
+.overlay-box .card-part2 {
+  position: relative;
+  margin-top: 5rem;
+  font-weight: bold;
+  height: 560px;
+}
+.overlay-box .card-part2-txt {
+  width: 50%;
+  margin-left: 0;
+}
+.overlay-box .card-part2-txt p {
+  line-height: 5rem;
+}
+.overlay-box .card-part2-txt p:nth-child(1) {
+  font-size: 2.8rem;
+}
+.overlay-box .card-part2-txt p:nth-child(2) {
+  font-size: 4rem;
+}
+.overlay-box .card-part2 a {
+  font-size: 1.6rem;
+  text-decoration: none;
+  color: #000;
+}
+.overlay-box .card-part2-naver-logo {
+  position: absolute;
+  width: 425px;
+  height: 208px;
+  top: 0;
+  right: 0;
+}
+.overlay-box .card-part2-naver-logo img {
+  width: 100%;
+  height: 100%;
+}
+
+.overlay-box .card-part2 .naver-membership-box {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: auto;
+  /* 플렉스 */
+  display: flex;
+  justify-content: space-between;
+}
+.box-green {
+  position: relative;
+  width: 520px;
+  height: 325px;
+  background-color: #00b016;
+  border-radius: 2rem;
+  padding: 30px;
+  box-sizing: border-box;
+}
+.box-green p {
+  font-size: 4rem;
+  color: #fff;
+  font-weight: bold;
+  line-height: 5rem;
+}
+.box-green p:nth-child(1) {
+  font-size: 2.4rem;
+  color: #fff;
+  opacity: 0.6;
+  font-weight: bold;
+  line-height: 3.2rem;
+  margin-bottom: 2.5rem;
+}
+.box-green a {
+  position: absolute;
+  width: 3.2rem;
+  height: 3.2rem;
+  bottom: 2rem;
+  right: 2rem;
+  background: #000;
+  opacity: 70%;
+  border-radius: 50%;
+}
+.box-green i {
+  font-size: 3.2rem;
+}
+
+.box-gray {
+  position: relative;
+  width: 325px;
+  height: 325px;
+  background-color: #f5f5f5;
+  border-radius: 2rem;
+  padding: 30px 20px;
+  box-sizing: border-box;
+}
+.box-gray p {
+  font-size: 4rem;
+  color: #000;
+  font-weight: bold;
+  line-height: 5rem;
+}
+.box-gray p:nth-child(1) {
+  font-size: 2.4rem;
+  color: #000;
+  font-weight: bold;
+  line-height: 3.2rem;
+  margin-bottom: 2.5rem;
+}
+.box-gray a {
+  position: absolute;
+  width: 3.2rem;
+  height: 3.2rem;
+  bottom: 2rem;
+  right: 2rem;
+  background: #000;
+  opacity: 70%;
+  border-radius: 50%;
+}
+.box-gray i {
+  font-size: 3.2rem;
+}
+
+/********* 카드소개페이지 3영역 *********/
+.overlay-box .card-part3 {
+  height: auto;
+  margin-top: 100px;
+  justify-items: center;
+  text-align: center;
+}
+.card-part3-applepay-logo img {
+  width: 110px;
+}
+.card-part3-txt1 {
+  margin-top: 30px;
+}
+.card-part3-txt1 p {
+  text-align: center;
+  font-size: 2rem;
+  line-height: 3.5rem;
+  font-weight: bold;
+}
+.card-part3-txt1 p:nth-child(4) {
+  display: block;
+  margin-top: 1.5rem;
+
+  font-size: 1.6rem;
+  font-weight: medium;
+}
+.card-part3-txt1 a {
+  display: block;
+  margin-top: 3rem;
+  text-align: center;
+  font-size: 1.6rem;
+  text-decoration: none;
+  color: #000;
+}
+.card-part3-3rd-logo {
+  margin-top: 100px;
+}
+.card-part3-txt2 p {
+  font-size: 1.6rem;
+  line-height: 2.6rem;
+}
+.card-part3-txt2 p:nth-child(1) {
+  font-size: 2rem;
+  line-height: 5.5rem;
+  font-weight: bold;
+}
+
+/********* 카드소개페이지 4영역 *********/
+.card-part4 {
+  margin-top: 50px;
+  height: auto;
+}
+.card-part4 p {
+  font-size: 2rem;
+  font-weight: bold;
+}
+.card-part4-list {
+  padding: 20px;
+}
+.card-part4-list ul li {
+  font-size: 1.4rem;
+  font-weight: 350;
+}
+.card-part4-list .ul-ul li {
+  list-style-type: "\- ";
+  list-style-position: inside;
+}
+.card-part4::after {
+  content: "";
+  display: block;
+  border: 0.5px solid #e0e0e060;
+}
+
+/********* 카드소개페이지 5영역 *********/
+.card-part5 {
+  margin-top: 40px;
+  height: auto;
+}
+.card-part5-list {
+  padding: 20px;
+}
+.card-part5-list ul li {
+  font-size: 1.4rem;
+  font-weight: 350;
+}
+.card-part5-list .ul-ul li {
+  list-style-type: "- ";
+  list-style-position: inside;
+}
+.card-part5::after {
+  position: absolute;
+  margin-top: 20px;
+  left: 50%;
+  translate: -50%;
+  width: 960px;
+  content: "";
+  display: block;
+  border: 0.5px solid #000;
 }
 
 /* 애플페이 소개페이지 */
+.applepay-page {
+  padding: 0;
+  background-color: #fff;
+  position: relative;
+  height: 100%;
+}
+.applepay-page .inbox {
+  padding: 0 20px;
+}
+
+/********* 애플페이 1영역 *********/
+.ap-part1 {
+  background-color: #000;
+  border-radius: 20px 20px 0 0;
+  color: #fff;
+  text-align: center;
+}
+/* 3-1-1 상단로고 */
+.ap-part1 {
+  position: relative;
+}
+.ap-part1-top-logo {
+  position: absolute;
+  top: 4%;
+  left: 50%;
+  translate: -50%;
+  width: 300px;
+
+  content: "";
+  display: flex;
+}
+.ap-part1-top-logo span::after {
+  content: "";
+  display: block;
+  border: 1px solid #fff;
+  height: 32px;
+}
+
+/* 3-1-2 텍스트 */
+.ap-part1-txt {
+  margin-top: 45%;
+  line-height: 2;
+}
+.ap-part1 h2 {
+  font-size: 3rem;
+}
+.ap-part1 h3 {
+  font-size: 2rem;
+}
+.ap-part2 h1 {
+  font-size: 4rem;
+}
+
+/* 3-1-3 핸드폰 */
+.move-phone{
+  position: fixed;
+  top: 2%;
+  right: 14%;
+  width: 223px;
+  height: 454px;
+  
+}
+.move-phone span{
+  content: "";
+  display: block;
+  background: url(../imgs/applepay/applepay_01.png) no-repeat center/cover;
+  width: 100%;
+  height: 100%;
+}
 
 /* ============== 서브페이지 종료 ============= */
