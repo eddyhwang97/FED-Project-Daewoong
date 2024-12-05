@@ -10,7 +10,7 @@ html,body{
 }
 body *{
     padding: 0;
-    margin: 0 auto;
+    margin: 0;
 
     /* 공사중 */
     outline: 1px solid gray;
