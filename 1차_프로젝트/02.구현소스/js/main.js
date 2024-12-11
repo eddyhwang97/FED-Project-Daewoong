@@ -46,6 +46,7 @@ navArea.forEach((el, idx) => {
 ///////////////카드 뒤집기 토글 ////////////
 $(card).click((e) => {
   $(e.currentTarget).toggleClass("rotate-card");
+  $(e.currentTarget).attr("style","");
 });
 
 //////////////카드 스택/스프레드 토글버튼 //////////////
