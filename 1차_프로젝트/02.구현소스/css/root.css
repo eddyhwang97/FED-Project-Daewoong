@@ -7,9 +7,6 @@
   /* 카드 크기 */
   --main-card-width: 255px;
   --main-card-height: 403px;
-  --main-card-side-size: 10px;
-  --main-card-side-with: 340;
-  --main-card-side-height: 550;
 
   /* 카드 옆면 색깔 */
   --main-card-side-color: #d9d9d9;

@@ -1,0 +1,252 @@
+@charset "utf-8";
+/* 현대카드 페이지 메인 CSS - main.css */
+
+/* 폰트 */
+@import url("https://fonts.googleapis.com/css2?family=Dongle&family=Edu+AU+VIC+WA+NT+Pre:wght@400..700&family=Gasoek+One&family=Gugi&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Jua&family=K2D:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Sunflower:wght@300&display=swap");
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css");
+/* 외부css 링크 모음 */
+@import url(./reset.css);
+@import url(./common.css);
+@import url(./grid_12_flex.css);
+@import url(./root.css);
+@import url(./main-ani.css);
+/*===================================================
+메인영역 
+===================================================*/
+/* 임시 타이틀 */
+.temt-tit {
+  position: absolute;
+  color: #888;
+  font-size: 2vw;
+  text-align: center;
+  outline: none;
+}
+
+/* 전체 컨테이너 설정 */
+.container {
+  max-width: 100vw;
+  height: auto;
+}
+/* 메인 페이지 랩박스 */
+.main-wrap-box {
+  /* 부모박스 설정*/
+  position: relative;
+  max-width: 100vw;
+  height: 100vh;
+  background: var(--main-bg-color);
+}
+
+/* ========================================================
+메인페이지 카드 펼침 영역 시작
+======================================================== */
+.main-wrap-box2 {
+  background-color: #4483e0; /* 부모박스 설정*/
+  position: relative;
+  max-width: 100vw;
+  height: 100vh;
+}
+.main-card-spread {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 680px;
+  border-radius: 10px;
+  display: grid;
+  place-items: center;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 40px;
+
+  perspective: 1000px;
+}
+
+/* 카드 박스 크기 */
+.spreadcard {
+  width: var(--main-card-width);
+  height: var(--main-card-height);
+  position: relative;
+
+  transition: 0.4s;
+  /* 입체 트랜스폼 구성
+  하위의 .card가 입체구성대상 */
+  transform-style: preserve-3d;
+}
+/* 카드 마우스 오버 */
+.spreadcard:hover {
+  scale: 1.1;
+}
+/* 카드이름 */
+.spreadcard::before {
+  position: absolute;
+  font-size: 50px;
+
+  text-shadow: 0 0 5px #000;
+  font-family: "josefin Sans", sans-serif;
+  font-weight: bold;
+  text-shadow: 1px 0 BLACK, -1px 0 BLACK, 0 1px BLACK, 0 -1px BLACK;
+
+  top: -50px;
+  left: 50%;
+  translate: -50%;
+}
+.spreadcard-naver::before {
+  content: "NAVER";
+  color: #00a414;
+}
+.spreadcard-musinsa::before {
+  content: "MUSINSA";
+  color: #000;
+}
+.spreadcard-starbucks::before {
+  content: "STARBUCKS";
+  color: #00704a;
+}
+.spreadcard-nexon::before {
+  content: "NEXON";
+  color: #fff;
+}
+
+.card {
+  position: absolute;
+  box-shadow: 4px 4px 10px #000;
+  transform-style: preserve-3d;
+  width: 100%;
+  height: 100%;
+  /* 트랜지션 */
+  transition: 1s;
+}
+/* 카드 앞면 */
+.card::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  translate: 0 0 2px;
+}
+.musinsa::after {
+  background: url(../imgs/musinsacard/img_musinsacard_01.png) no-repeat 100%/100%;
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  translate: 0 0 2px;
+}
+.naver::after {
+  background: url(../imgs/navercard/img_navercard_1.png) no-repeat 100%/100%;
+}
+.starbucks::after {
+  background: url(../imgs/starbucks/img_starbuckscard_01.png) no-repeat 100%/100%;
+}
+.nexon::after {
+  background: url(../imgs/nexoncard/img_nexoncard_03.png) no-repeat 100%/100%;
+}
+/* 카드 뒷면 */
+.card::before {
+  content: "";
+  position: absolute;
+  background-color: #fff;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  translate: 0 0 -2px;
+}
+/* 무신사 , 넥슨 위치변경 */
+.spreadcard.spreadcard-musinsa {
+  margin-top: 150px;
+}
+.spreadcard.spreadcard-nexon {
+  margin-top: 150px;
+}
+
+/* 카드 클릭시 뒤집기 */
+.rotate-card{
+  rotate : y 180deg;
+  scale: 4;
+  z-index: 3;
+}
+/*===================== 3. 하단버튼영역 설정 =====================*/
+/* 하단 버튼영역 */
+.foot-area {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100px;
+}
+.switch {
+  position: relative;
+  border-radius: 4rem;
+  width: 140px;
+  height: 75px;
+  background: #000;
+  display: block;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.stack-mode {
+  width: 63px;
+  height: 63px;
+  display: flex;
+  position: relative;
+  justify-content: center;
+  align-items: center;
+}
+.stack-bg {
+  background: #fff;
+  border-radius: 100%;
+  height: 100%;
+  width: 100%;
+}
+.stack-icon {
+  width: 23px;
+  height: 33px;
+  border-radius: 0.3rem;
+  display: inline-block;
+  position: absolute;
+  background: #000;
+}
+.spread-mode {
+  width: 63px;
+  height: 63px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.spread-bg {
+  background: #000;
+  border-radius: 100%;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  z-index: -1;
+}
+.spread-icon {
+  width: 30px;
+  height: 30px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.dot {
+  width: 10px;
+  height: 10px;
+  display: block;
+  border-radius: 50%;
+  background: #fff;
+}
+
+/* ========================================================
+메인페이지 카드 펼침 영역 종료
+======================================================== */

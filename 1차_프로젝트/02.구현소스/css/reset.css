@@ -1,22 +1,22 @@
 @charset "utf-8";
 /* 리셋 CSS - reset.css */
-
-html,body{
-    font-size: 10px;
-    padding: 0;
-    margin: 0;
-    font-family: "Noto Sans KR",sans-serif;
-    scroll-behavior: smooth;
+html {
+  scroll-behavior: smooth;
 }
-body *{
-    padding: 0;
-    margin: 0;
-
-    /* 공사중 */
-    outline: 1px solid gray;
-
-    
+html,
+body,
+p,
+ul,
+li {
+  font-size: 10px;
+  padding: 0;
+  margin: 0;
+  font-family: "Noto Sans KR", sans-serif;
 }
-.blind{
-    position: absolute;
+body * {
+  /* 공사중 */
+  outline: 1px solid gray;
+}
+.blind {
+  position: absolute;
 }

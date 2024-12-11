@@ -1,44 +1,74 @@
 // 현대카드 메인 JS -hymain.js
+import myFn from "./my_function.js";
+
 // console.log("hymain.js");
 
-// 마우스오버시 카드 넘어가는 이벤트 ///////////
-// 1. 대상선정
-// 1-1. 마우스오버 대상
-const hoverArea = document.querySelectorAll(".nav-area");
-// 1-2. 이벤트 대상
-const hoverCard = document.querySelector(".card");
+//////////////카드 넘기기 기능 /////////////
+// 1. 이벤트 대상
+// 1-1. 오버영역 .nav-area
+const navArea = myFn.qsa(".nav-area");
+// 1-2. 넘겨지는 대상 .card
+const card = myFn.qsa(".card");
+// const hvoercard = myFn.qsaEl(card)
+// 1-3. 뒷배경 .hover-area
+const hoverArea = myFn.qsa(".hover-area");
 
-console.log("대상: ", hoverArea);
-
-
-
-///좌로넘기기 엔터
-hoverArea[0].addEventListener("mouseenter", () => {
-  hoverCard.style.rotate = "Y -30deg";
-  hoverCard.style.translate = "-200px";
-  hoverCard.style.transition = " 0.4s ease-in-out";
-}); 
-///좌로넘기기 나가기
-hoverArea[0].addEventListener("mouseleave", () => {
-  hoverCard.style.rotate = "Y 0deg";
-  hoverCard.style.translate = "0px";
-  hoverCard.style.transition = " .4s ease-in-out";
-}); 
-///우로넘기기 엔터
-hoverArea[1].addEventListener("mouseenter", () => {
-  hoverCard.style.rotate = "Y 30deg";
-  hoverCard.style.translate = "200px";
-  hoverCard.style.transition = " 0.4s ease-in-out";
-}); 
-///우로넘기기 나가기
-hoverArea[1].addEventListener("mouseleave", () => {
-  hoverCard.style.rotate = "Y 0deg";
-  hoverCard.style.translate = "0px";
-  hoverCard.style.transition = " .4s ease-in-out";
+console.log("대상", navArea, card, hoverArea);
+addEventListener;
+// 2. 이벤트 설정
+// 오버영역 마우스 오버시 카드가 해당 방향으로 넘어감
+navArea.forEach((el, idx) => {
+  // console.log("대상", el, "순번", idx);
+  el.addEventListener("mouseover", function () {
+    //호출확인
+    console.log("in",el,idx);
+    if (idx == 0) {
+      hoverArea[0].style.backgroundColor = "#4D63EE";
+      card[0].style.translate = "-70%";
+      card[0].style.rotate = "y -40deg";
+    } else if (idx == 1) {
+      hoverArea[1].style.backgroundColor = "#EE554D";
+      card[0].style.translate = "70%";
+      card[0].style.rotate = "y 40deg";
+    }
+  });
+  el.addEventListener("mouseout", function () {
+    // 호출확인
+    console.log("out");
+    hoverArea[idx].style.backgroundColor = "transparent";
+    card[0].style.translate = "0%";
+    card[0].style.rotate = "y 0deg";
+  });
 });
-//  마우스오버 영역 이벤트 종료 /////////
 
+///////////////오버시 배경 변하기 기능 /////////////////
 
+///////////////카드 뒤집기 토글 ////////////
+$(card).click((e) => {
+  $(e.currentTarget).toggleClass("rotate-card");
+});
 
+//////////////카드 스택/스프레드 토글버튼 //////////////
+$(() => {
+  $(".switch")
+    .css({ transition: "1s forwards" })
+    .click(() => {
+      $(".stack-bg").css({
+        backgroundColor: "#000000",
+      });
+      $(".stack-icon").css({
+        backgroundColor: "#ffffff",
+      });
+      $(".spread-bg").css({
+        backgroundColor: "#ffffff",
+        zIndex: "1",
+      });
+      $(".dot").css({
+        backgroundColor: "#000000",
+        zIndex: "2",
+      });
+    });
+});
 
-
+// 오버영역에 마우스 오버시 카드가 해당 방향으로 넘어감
+// 카드 클릭시 카드가 뒤집어 지면서 화면을 채움
