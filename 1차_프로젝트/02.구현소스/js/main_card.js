@@ -1,4 +1,4 @@
-// 현대카드 메인 JS -hymain.js
+// 현대카드 메인 카드관련 기능 JS - main_card.js
 import myFn from "./my_function.js";
 
 // console.log("hymain.js");
@@ -13,7 +13,7 @@ const card = myFn.qsa(".card");
 // 1-3. 뒷배경 .hover-area
 const hoverArea = myFn.qsa(".hover-area");
 
-console.log("대상", navArea, card, hoverArea);
+// console.log("대상", navArea, card, hoverArea);
 addEventListener;
 // 2. 이벤트 설정
 // 오버영역 마우스 오버시 카드가 해당 방향으로 넘어감
@@ -21,7 +21,7 @@ navArea.forEach((el, idx) => {
   // console.log("대상", el, "순번", idx);
   el.addEventListener("mouseover", function () {
     //호출확인
-    console.log("in",el,idx);
+    console.log("in", el, idx);
     if (idx == 0) {
       hoverArea[0].style.backgroundColor = "#4D63EE";
       card[0].style.translate = "-70%";
@@ -43,10 +43,19 @@ navArea.forEach((el, idx) => {
 
 ///////////////오버시 배경 변하기 기능 /////////////////
 
-///////////////카드 뒤집기 토글 ////////////
+///////////////카드 뒤집기 ////////////
 $(card).click((e) => {
   $(e.currentTarget).toggleClass("rotate-card");
-  $(e.currentTarget).attr("style","");
+  $(e.currentTarget).attr("style", "");
+  if ($(e.currentTarget).hasClass("rotate-card")) {
+    $(".nav-area").css({ display: "none" });
+    $(".switch").css({ display: "none" });
+    $(".main-card-name").addClass("off");
+  } else {
+    $(".nav-area").css({ display: "" });
+    $(".switch").css({ display: "" });
+    $(".main-card-name").removeClass("off");
+  }
 });
 
 //////////////카드 스택/스프레드 토글버튼 //////////////

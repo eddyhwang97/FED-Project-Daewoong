@@ -12,7 +12,11 @@
     <!-- 제이쿼리 UI는 색상애니, 드래그기능 등 추가모듈 -->
     <script src="./js/jquery-3.7.1.min.js"></script>
     <!-- 메인 JS 연결 -->
-    <script type="module" src="./js/main.js"></script>
+    <script type="module" src="./js/main_card.js"></script>
+    <!-- 카드디테일페이지 JS 연결 -->
+    <script type="module" src="./js/card_detail_page.js"></script>
+    <!-- 애플페이 JS 연결 -->
+    <script type="module" src="./js/applepay.js"></script>
   </head>
   <body>
     <!-- main-container-->
@@ -64,14 +68,14 @@
           </div>
           <!-- 2-2. 카드 선택 영역 -->
           <div class="col-4 card-select-area">
-            <!-- 2-2-1. 카드더미 -->
+            <!-- 2-2-1. 카드더미
             <div class="carddum">
               <span class="backcard"></span>
               <span class="backcard"></span>
               <span class="backcard"></span>
-            </div>
+            </div> -->
             <!-- 2-2-2. 메인 카드 -->
-            <div class="main-card">
+            <div class="main-card main-card-name">
               <div class="card stack-card"></div>
             </div>
           </div>
@@ -164,27 +168,21 @@
             </div>
             <div class="card-detail-grid">
               <div class="view-card-detail card-detail1">
-                <a href="#"> </a>
                 <span>Graffiti</span>
               </div>
               <div class="view-card-detail card-detail2">
-                <a href="#"> </a>
                 <span>Line</span>
               </div>
               <div class="view-card-detail card-detail3">
-                <a href="#"> </a>
                 <span>Type</span>
               </div>
               <div class="view-card-detail card-detail4">
-                <a href="#"> </a>
                 <span>Joy</span>
               </div>
               <div class="view-card-detail card-detail5">
-                <a href="#"> </a>
                 <span>Tube</span>
               </div>
               <div class="view-card-detail card-detail6">
-                <a href="#"> </a>
                 <span>Core</span>
               </div>
             </div>
@@ -193,6 +191,7 @@
           <div class="inbox select-card-popup">
             <h2 class="temt-tit">선택카드디테일 팝업페이지</h2>
             <div class="cont-box">
+              <i id="close-button" class="fa-solid fa-circle-xmark" style="color: #dfdfdf;"></i>
               <div class="col-1"></div>
               <div class="col-10">
                 <section class="card-name-sec">
@@ -240,18 +239,12 @@
                 <p>네이버 플러스 멤버십</p>
                 <p>대상 가맹점 최대 5%</p>
                 <p>네이버 페이 포인트 적립</p>
-                <a href="" alt="자세히보기">
-                  <i class="fa-solid fa-circle-plus" style="color: #cacaca"></i>
-                </a>
               </div>
               <div class="box box-gray">
                 <p>그 외 가맹점</p>
                 <p>적립·한도 제한없이</p>
                 <p>1% 네이버페이</p>
                 <p>포인트 적립</p>
-                <a href="" alt="자세히보기">
-                  <i class="fa-solid fa-circle-plus" style="color: #cacaca"></i>
-                </a>
               </div>
             </div>
           </div>
@@ -266,10 +259,6 @@
               <p>간편한 컨택리스, 대중교통 결제,</p>
               <p>탑승권과 멤버십까지 모두 지갑 앱으로</p>
               <p>해당 상품은 Apple Pay 이용이 가능합니다.</p>
-              <a href="#"
-                >자세히보기
-                <i class="fa-solid fa-chevron-right"></i>
-              </a>
             </div>
             <div class="card-part3-3rd-logo">
               <img src="./imgs/card_detail_img/3층로고.jpg" alt="3층로고" />

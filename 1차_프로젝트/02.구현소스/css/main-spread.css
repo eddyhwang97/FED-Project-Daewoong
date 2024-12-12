@@ -127,24 +127,16 @@
   translate: 0 0 2px;
 }
 .musinsa::after {
-  background: url(../imgs/musinsacard/img_musinsacard_01.png) no-repeat 100%/100%;
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  border-radius: 10px;
-  translate: 0 0 2px;
+  background: url(../imgs/musinsacard/img_musinsacard_1.png) no-repeat 100%/100%;
 }
 .naver::after {
   background: url(../imgs/navercard/img_navercard_1.png) no-repeat 100%/100%;
 }
 .starbucks::after {
-  background: url(../imgs/starbucks/img_starbuckscard_01.png) no-repeat 100%/100%;
+  background: url(../imgs/starbucks/img_starbuckscard_1.png) no-repeat 100%/100%;
 }
 .nexon::after {
-  background: url(../imgs/nexoncard/img_nexoncard_03.png) no-repeat 100%/100%;
+  background: url(../imgs/nexoncard/img_nexoncard_3.png) no-repeat 100%/100%;
 }
 /* 카드 뒷면 */
 .card::before {
