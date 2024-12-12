@@ -235,7 +235,7 @@
   transform-style: preserve-3d;
 
   /* 트랜지션 */
-  transition: 0.5s;
+  transition: 1s;
 }
 .card a {
   content: "";
