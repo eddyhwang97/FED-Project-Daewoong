@@ -107,7 +107,6 @@
 }
 
 .card {
-  position: absolute;
   box-shadow: 4px 4px 10px #000;
   transform-style: preserve-3d;
   width: 100%;
@@ -158,11 +157,29 @@
   margin-top: 150px;
 }
 
+
+/* 카드 마우스 오버 */
+.spreadcard.rotate-card:hover {
+  scale: 1;
+}
+
 /* 카드 클릭시 뒤집기 */
-.rotate-card{
+.spreadcard.rotate-card .card {
   rotate : y 180deg;
   scale: 4;
   z-index: 3;
+}
+.spreadcard:nth-child(1).rotate-card .card{
+  translate: 180%;
+}
+.spreadcard:nth-child(2).rotate-card .card{
+  translate: 67%;
+}
+.spreadcard:nth-child(3).rotate-card .card{
+  translate: -50%;
+}
+.spreadcard:nth-child(4).rotate-card .card{
+  translate: -167%;
 }
 /*===================== 3. 하단버튼영역 설정 =====================*/
 /* 하단 버튼영역 */

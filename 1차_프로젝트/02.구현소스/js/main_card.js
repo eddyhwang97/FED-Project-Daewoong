@@ -8,7 +8,7 @@ import myFn from "./my_function.js";
 // 1-1. 오버영역 .nav-area
 const navArea = myFn.qsa(".nav-area");
 // 1-2. 넘겨지는 대상 .card
-const card = myFn.qsa(".card");
+const card = myFn.qsa(".spreadcard");
 // const hvoercard = myFn.qsaEl(card)
 // 1-3. 뒷배경 .hover-area
 const hoverArea = myFn.qsa(".hover-area");

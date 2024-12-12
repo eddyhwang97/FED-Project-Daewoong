@@ -19,12 +19,8 @@ detailPopup.style.display = "none";
 // 2. 이벤트 설정
 $(viewCard).click(() => {
   console.log("Click")
-  $(detailPopup).css({
-    display: "",
-  });
-  $(closeButton).click(() => {
-    $(detailPopup).css({
-      display: "none",
-    });
-  });
+  $(detailPopup).fadeIn(600,"easeOutCirc");
+});
+$(closeButton).click(() => {
+  $(detailPopup).fadeOut(600,"easeOutCirc");
 });
