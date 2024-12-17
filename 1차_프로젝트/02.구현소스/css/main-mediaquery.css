@@ -83,3 +83,16 @@
   .view-card-detail {
   }
 }
+
+/* 애플페이 영역 미디어쿼리적용 */
+@media screen and (max-width: 700px) {
+  .phone-area{
+    right: 9%;
+  }
+}
+@media screen and (max-width: 600px) {
+  .phone-area{
+    right: 7%;
+  }
+}
+

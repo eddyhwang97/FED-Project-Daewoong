@@ -57,6 +57,11 @@ function rollingBanner() {
     // (2) 움직이는 ul : #container ul
     const $bannerUl = $(brandBox).find('ul')
     // (3) 최초 슬라이드 li 수집
+
+    // 2. 배너 애니메이션
+
+    // 3. 첫번째 li 맨뒤로 이동
+    
     const $firstSlide = $($bannerUl).children('li')
     console.log($bannerUl,$firstSlide);
     
@@ -65,7 +70,7 @@ function rollingBanner() {
     function autoRollingBanner(){
         let TIME_ANI = 20000;
     
-        $($bannerUl).animate({
+        $($bannerUl).eq(0).animate({
             translate : '-100%'
         }, TIME_ANI)
         let list = $bannerUl.children('li').eq(0);
@@ -73,3 +78,4 @@ function rollingBanner() {
         $bannerUl.append(list.clone());
     }
 };
+

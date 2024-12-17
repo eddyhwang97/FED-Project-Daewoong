@@ -765,7 +765,7 @@
   height: 10px;
 }
 /* 카드 설명 */
-.card-txt-sec{
+.card-txt-sec {
   margin-top: 2rem;
   font-size: 1.6rem;
 }
@@ -803,7 +803,7 @@
 .overlay-box .card-part2-naver-logo {
   position: absolute;
   width: min(425px, 42vw);
-    height: min(208px, 21vw);
+  height: min(208px, 21vw);
   top: 0;
   right: 0;
 }
@@ -1055,7 +1055,7 @@
   top: 2%;
   right: 13%;
   width: 223px;
-  height: 70%;
+  height: 62%;
   outline: 1px dashed red;
 }
 .move-phone {
@@ -1079,13 +1079,14 @@
   top: 16.8%;
   left: 21%;
   translate: -50%;
-  width: 385px;
+  max-width: 385px;
   height: 70%;
 }
 .stickbar {
   position: sticky;
   top: 1%;
-  height: 50px;
+  max-width: min(385px, 41vw);
+  max-height: 50px;
   background-color: #eeeeee;
   border-radius: 3rem;
 }
@@ -1126,57 +1127,106 @@
 }
 
 /********* 애플페이 3영역 *********/
-.ap-part3-txt{
+.ap-part3-txt {
   align-content: center;
   text-align: start;
 }
 
+.ap-part3-txt1 p {
+  font-size: 2rem;
+  font-weight: bold;
+  line-height: 1.5;
+}
+.ap-part3-txt2 li {
+  font-size: 1rem;
+  line-height: 1.5;
+}
+.ap-part3-txt2 li:last-child {
+  font-weight: bold;
+}
 
+/********* 애플페이 4영역 *********/
+.ap-part4-txt {
+  align-content: center;
+}
+.ap-part4-txt1 h1 {
+  margin: 10px;
+}
+.ap-part4-txt1 p {
+  font-size: 2rem;
+  font-weight: bold;
+}
+.watch-sec {
+  margin-top: 40px;
+
+  max-width: 380px;
+  height: 160px;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+
+  background: #d9d9d9;
+  border-radius: 12px;
+}
+.watch-sec-txt-box p {
+  font-size: 1.4rem;
+}
+.watch-sec-txt-box p:first-child {
+  font-weight: bold;
+}
+.watch-sec-img-box img {
+  width: 80px;
+}
+.ap-part4-txt2 {
+  display: block;
+  margin-top: 10px;
+}
+.ap-part4-txt2 p {
+  font-size: 1.4rem;
+}
+.ap-part4-txt2 p:first-child {
+  font-weight: bold;
+}
 
 /********* 애플페이 5영역 *********/
 
-.ap-part5-txt{
+.ap-part5-txt {
   align-content: center;
   text-align: center;
 }
 
-.ap-part5-img-box{
+.ap-part5-img-box {
   align-content: center;
   justify-items: center;
 }
-.ap-part5 .img-box{
+.ap-part5 .img-box {
   width: 300px;
 }
-.ap-part5-img-box img{
-width: 100%;
-
+.ap-part5-img-box img {
+  width: 100%;
 }
-
-
-
 
 /********* 애플페이 6영역 *********/
 /* 브랜드박스 */
-.brand-box{
-position: absolute;
-left: 50%;
-translate: -50%;
-overflow: hidden;
+.brand-box {
+  position: absolute;
+  left: 50%;
+  translate: -50%;
+  overflow: hidden;
 }
-.brand-box ul{
-display: flex;
-justify-content: space-between;
-width: 960px;
+.brand-box ul {
+  display: flex;
+  justify-content: space-between;
+  width: 960px;
 }
 
-.brand-box ul li{
+.brand-box ul li {
   list-style: none;
   width: 140px;
   height: 70px;
 }
-.brand-box ul li img{
+.brand-box ul li img {
   height: 100%;
 }
-
 
 /* ============== 서브페이지 종료 ============= */
