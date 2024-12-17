@@ -124,7 +124,7 @@
   transform: translateY(-50%);
 
   font-family: "K2D", sans-serif;
-  font-size: 6rem;
+  font-size: min(6rem, 7.5vw);
   text-transform: uppercase;
   color: #fff;
   text-shadow: 0 0 5px #000;
@@ -188,11 +188,10 @@
 
 /* 카드이름 */
 
-
 .main-card-name.off:before {
   content: "";
   position: absolute;
-  
+
   top: -50px;
   left: 50%;
   translate: -50%;
@@ -224,6 +223,13 @@
   translate: -50% -50%;
 
   transform-style: preserve-3d;
+  transition: 0.5s;
+}
+.main-card:hover {
+  scale: 1.1;
+}
+.card.rotate-card .card {
+  scale: 1;
 }
 .card {
   position: absolute;
@@ -277,7 +283,6 @@
 .rotate-card {
   rotate: y 180deg;
   scale: 4;
-  z-index: 3;
 }
 /* 카드 아웃 */
 .prev-card {
@@ -310,15 +315,15 @@
 }
 /* 두번째카드 */
 .carddum span:nth-child(2) {
-background: url(../imgs/starbucks/img_starbuckscard_01.png) no-repeat
-center/100% 100%;
-rotate: z 8deg;
+  background: url(../imgs/starbucks/img_starbuckscard_01.png) no-repeat
+    center/100% 100%;
+  rotate: z 8deg;
 }
 /* 세번째카드 */
 .carddum span:nth-child(1) {
-background: url(../imgs/nexoncard/img_nexoncard_06.png) no-repeat center/100%
-100%;
-rotate: 12deg;
+  background: url(../imgs/nexoncard/img_nexoncard_06.png) no-repeat center/100%
+    100%;
+  rotate: 12deg;
 }
 
 /*===================== 3. 하단버튼영역 설정 =====================*/
@@ -342,7 +347,7 @@ rotate: 12deg;
   align-items: center;
   justify-content: space-around;
 }
-.stack-mode {
+.main-mode {
   width: 63px;
   height: 63px;
   display: flex;
@@ -350,13 +355,13 @@ rotate: 12deg;
   justify-content: center;
   align-items: center;
 }
-.stack-bg {
+.main-bg {
   background: #fff;
   border-radius: 100%;
   height: 100%;
   width: 100%;
 }
-.stack-icon {
+.main-icon {
   width: 23px;
   height: 33px;
   border-radius: 0.3rem;
@@ -488,7 +493,7 @@ rotate: 12deg;
 
 /* 서브페이지 공통 */
 .sub-wrap-box {
-  max-width: 1000px;
+  max-width: min(1000px, 96vw);
   height: auto;
   margin: 0 auto;
   padding: 80px 20px;
@@ -521,25 +526,21 @@ rotate: 12deg;
   position: relative;
 }
 .card-detail-top-img {
-  width: 692px;
   height: auto;
   margin: 0;
 }
 /* 2-1-1. 카드소개 상단 이미지 */
 .card-detail-top-img img {
-  width: 692px;
-  height: 656px;
+  max-width: min(692px, 67vw);
+  max-height: min(656px, 67vw);
   border-radius: 2rem;
 }
 /* 2-1-2. 카드소개 상단 텍스트 */
-.card-detail-top-txt {
-  position: absolute;
-  top: 50%;
-  right: 0;
-  translate: 0 -50%;
-  width: 250px;
+.col-5-card-main {
 }
-
+.card-detail-top-txt {
+  margin: 70px 10px 20px 0;
+}
 .card-detail-top-txt ul {
   list-style: none;
   line-height: 2;
@@ -547,36 +548,31 @@ rotate: 12deg;
   margin: 0;
 }
 .card-detail-top-txt li:nth-child(1) {
-  font-size: 1.8rem;
+  font-size: 1.5rem;
   font-weight: bold;
 }
 .card-detail-top-txt li:nth-child(2) {
-  font-size: 3.7rem;
+  font-size: 3.1rem;
   font-weight: bold;
 }
 .card-detail-top-txt li:nth-child(3) {
-  font-size: 1.8rem;
+  font-size: 1.5rem;
 }
 .card-detail-top-txt li:nth-child(4) {
-  font-size: 1.8rem;
+  font-size: 1.5rem;
 }
 
 /* 2-1-3. 카드소개 상단 연회비박스 */
 .card-detail-top-membership-box {
-  position: absolute;
-  top: 70%;
-  right: 0;
-  width: 250px;
-  height: 105px;
   padding: 10px;
 
   font-weight: bold;
-
+  margin-right: 10px;
   border: 0.5px solid #737373;
   border-radius: 1rem;
   box-sizing: border-box;
 }
-.card-detail-top-membership-box p{
+.card-detail-top-membership-box p {
   font-size: 1.5rem;
 }
 .card-detail-top-membership-box ul {
@@ -585,7 +581,6 @@ rotate: 12deg;
   padding: 0;
   max-width: 100%;
   font-size: 1.5rem;
-
 }
 .card-detail-top-membership-box li {
   display: flex;
@@ -605,11 +600,9 @@ rotate: 12deg;
 
 /* *****오버레이 영역 ******/
 
-
-
 /* 오버레이 박스 */
 .overlay-box {
-  min-width: 960px;
+  max-width: min(960px);
   margin: 0 auto;
   margin-top: 40px;
   padding: 40px;
@@ -632,12 +625,9 @@ rotate: 12deg;
 .overlay-box .card-part1 {
   text-align: center;
   height: auto;
+  position: relative;
 }
-.overlay-box .card-part1 p {
-  font-size: 4rem;
-  font-weight: bold;
-  line-height: 5rem;
-}
+
 .overlay-box .card-part1 img {
   width: 230px;
   height: 364px;
@@ -649,8 +639,9 @@ rotate: 12deg;
   max-width: 880px;
   margin: 0 auto;
   grid-template-columns: repeat(3, 1fr);
-  gap: 7rem 7rem;
-
+  gap: min(7rem, 3vw);
+  justify-items: center;
+  justify-content: center;
   padding: 7rem 0;
 }
 /* 그리드 각 박스 공통 */
@@ -714,9 +705,11 @@ rotate: 12deg;
   top: 23%;
   left: 50%;
   translate: -50%;
+
+  padding-top: 50px;
 }
 /* 닫기버튼 */
-#close-button{
+#close-button {
   position: absolute;
   top: 10px;
   right: 10px;
@@ -725,21 +718,16 @@ rotate: 12deg;
 }
 
 /* 카드이름부분 */
-.card-name-sec{
+.card-name-sec {
   text-align: center;
-
 }
 /* 카드이름 폰트설정 */
-.card-name-sec h2{
-  font-size: 3.4rem;
+.overlay-box .card-name-sec p {
+  font-size: 1.6rem;
   font-weight: bold;
 }
-/* 카드이름 폰트설정 */
-.card-name-sec p{
-  font-size: 1.6rem;
-}
 /* 카드 이미지 부분 */
-.card-detail-sec{
+.card-detail-sec {
   display: flex;
   justify-content: space-evenly;
   margin-bottom: 2rem;
@@ -747,7 +735,7 @@ rotate: 12deg;
   margin-top: 40px;
 }
 /* 카드 이미지 앞뒤 글자 */
-.card-detail-sec aside{
+.card-detail-sec aside {
   position: absolute;
   bottom: -2.5rem;
   left: 0;
@@ -755,45 +743,44 @@ rotate: 12deg;
   text-align: center;
   font-size: 1.6rem;
   font-weight: bold;
-  
 }
-  /* 카드 이미지 앞면 */
-.card-detail-sec-fornt{
+/* 카드 이미지 앞면 */
+.card-detail-sec-fornt {
   position: relative;
   background: url(../imgs/navercard/img_navercard_1.png) no-repeat center/100%;
   width: 170px;
   height: 270px;
 }
 /* 카드이미지 뒷면 */
-.card-detail-sec-back{
+.card-detail-sec-back {
   position: relative;
-  background: url(../imgs/navercard/img_card_NVHC_graffiti_back.png) no-repeat center/100%;
+  background: url(../imgs/navercard/img_navercard_back_1.png) no-repeat
+    center/100%;
   width: 170px;
   height: 270px;
 }
 /* 불릿 구역 */
-.bullet-sec{
+.bullet-sec {
   width: 100%;
   height: 10px;
 }
 /* 카드 설명 */
 .card-txt-sec{
   margin-top: 2rem;
+  font-size: 1.6rem;
 }
 /* 카드설명 폰트설정 */
-.card-txt-sec p{
+.overlay-box .card-txt-sec p {
   text-align: center;
   font-size: 1.6rem;
-
 }
-
 
 /********* 카드소개페이지 2영역 *********/
 .overlay-box .card-part2 {
   position: relative;
   margin-top: 5rem;
   font-weight: bold;
-  height: 560px;
+  height: min(560px, 51vw);
 }
 .overlay-box .card-part2-txt {
   width: 50%;
@@ -815,8 +802,8 @@ rotate: 12deg;
 }
 .overlay-box .card-part2-naver-logo {
   position: absolute;
-  width: 425px;
-  height: 208px;
+  width: min(425px, 42vw);
+    height: min(208px, 21vw);
   top: 0;
   right: 0;
 }
@@ -837,7 +824,7 @@ rotate: 12deg;
 .box-green {
   position: relative;
   width: 520px;
-  height: 325px;
+  height: min(325px, 31vw);
   background-color: #00b016;
   border-radius: 2rem;
   padding: 30px;
@@ -874,7 +861,7 @@ rotate: 12deg;
 .box-gray {
   position: relative;
   width: 340px;
-  height: 325px;
+  height: min(325px, 31vw);
   background-color: #f5f5f5;
   border-radius: 2rem;
   padding: 30px 20px;
@@ -1137,4 +1124,59 @@ rotate: 12deg;
   font-size: 2rem;
   color: #5c5c5c;
 }
+
+/********* 애플페이 3영역 *********/
+.ap-part3-txt{
+  align-content: center;
+  text-align: start;
+}
+
+
+
+/********* 애플페이 5영역 *********/
+
+.ap-part5-txt{
+  align-content: center;
+  text-align: center;
+}
+
+.ap-part5-img-box{
+  align-content: center;
+  justify-items: center;
+}
+.ap-part5 .img-box{
+  width: 300px;
+}
+.ap-part5-img-box img{
+width: 100%;
+
+}
+
+
+
+
+/********* 애플페이 6영역 *********/
+/* 브랜드박스 */
+.brand-box{
+position: absolute;
+left: 50%;
+translate: -50%;
+overflow: hidden;
+}
+.brand-box ul{
+display: flex;
+justify-content: space-between;
+width: 960px;
+}
+
+.brand-box ul li{
+  list-style: none;
+  width: 140px;
+  height: 70px;
+}
+.brand-box ul li img{
+  height: 100%;
+}
+
+
 /* ============== 서브페이지 종료 ============= */

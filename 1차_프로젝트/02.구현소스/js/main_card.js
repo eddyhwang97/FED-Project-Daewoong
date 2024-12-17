@@ -58,27 +58,4 @@ $(card).click((e) => {
   }
 });
 
-//////////////카드 스택/스프레드 토글버튼 //////////////
-$(() => {
-  $(".switch")
-    .css({ transition: "1s forwards" })
-    .click(() => {
-      $(".stack-bg").css({
-        backgroundColor: "#000000",
-      });
-      $(".stack-icon").css({
-        backgroundColor: "#ffffff",
-      });
-      $(".spread-bg").css({
-        backgroundColor: "#ffffff",
-        zIndex: "1",
-      });
-      $(".dot").css({
-        backgroundColor: "#000000",
-        zIndex: "2",
-      });
-    });
-});
 
-// 오버영역에 마우스 오버시 카드가 해당 방향으로 넘어감
-// 카드 클릭시 카드가 뒤집어 지면서 화면을 채움

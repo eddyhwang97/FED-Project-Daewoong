@@ -1,3 +1,85 @@
 @charset "utf-8";
 /* 메인 미디어쿼리 CSS - main-mediaquery.css  */
 
+/* 메인 영역 미디어쿼리 적용하기 */
+@media screen and (max-width: 1440px) {
+  /* .logo{
+    } */
+}
+@media screen and (max-width: 800px) {
+  .logo {
+    scale: 0.8;
+  }
+  .main-card {
+    scale: 0.9;
+  }
+  .next {
+    left: 30%;
+  }
+  .prev {
+    right: 30%;
+  }
+
+  .rotate-card {
+    scale: 2;
+    height: 100vh;
+  }
+}
+@media screen and (max-width: 600px) {
+  .main-card {
+    scale: 0.6;
+  }
+}
+
+/* 카드디테일 소개 영역 미디어쿼리 적용하기 */
+@media screen and (max-width: 1000px) {
+  .card-detail-top-img img {
+    max-width: min(692px, 60vw);
+    max-height: min(656px, 67vw);
+  }
+  html {
+    font-size: 8px;
+  }
+}
+@media screen and (max-width: 900px) {
+  html {
+    font-size: 6px;
+  }
+  .view-card-detail {
+    scale: 0.9;
+  }
+  .card-detail-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media screen and (max-width: 830px) {
+  html {
+    font-size: 6px;
+  }
+}
+@media screen and (max-width: 700px) {
+  .card-detail-top-img img {
+    max-width: min(692px, 53vw);
+    max-height: min(656px, 67vw);
+  }
+  html {
+    font-size: 4px;
+  }
+}
+@media screen and (max-width: 600px) {
+  .card-detail-grid {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .card-detail-top-img img {
+    max-width: min(692px, 53vw);
+    max-height: min(656px, 67vw);
+  }
+  html {
+    font-size: 4px;
+  }
+  .view-card-detail {
+  }
+}
