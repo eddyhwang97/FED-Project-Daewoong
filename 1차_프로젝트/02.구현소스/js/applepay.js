@@ -121,7 +121,25 @@ function rollingBanner() {
 
 //// scroll act
 // 변경대상 : .move-phone
+const getBCR = x => x.getBoundingClientRect().top;
 
+const scTarget = document.querySelector('.ap-part3');
+const scTgHeight = scTarget.offsetHeight-454;
+const $mvPhone = $('.move-phone span');
+
+$(window).scroll(()=>{
+  let val = getBCR(scTarget);
+  if(val<0&&val>-scTgHeight){
+    console.log('작동!!!');
+    if(Math.abs(val)>1000)  $mvPhone.eq(4).css({translate:'420%'});
+    else if(Math.abs(val)>800)  $mvPhone.eq(3).css({translate:'320%'});
+    else if(Math.abs(val)>600)  $mvPhone.eq(2).css({translate:'220%'});
+    else if(Math.abs(val)>400)  $mvPhone.eq(1).css({translate:'120%'});
+    else if(Math.abs(val)>200)  $mvPhone.eq(1).css({translate:'60%'});
+    
+  }
+  // console.log(val,scTgHeight);
+}); ///// scroll ////
 
 
 

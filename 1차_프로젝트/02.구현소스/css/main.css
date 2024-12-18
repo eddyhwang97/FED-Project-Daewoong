@@ -969,7 +969,7 @@
 .applepay-page {
   padding: 0;
   background-color: #fff;
-  position: absolute;
+  position: relative;
   height: 100%;
 }
 .applepay-page h1{
@@ -1023,7 +1023,7 @@
   top: 2%;
   right: 13%;
   width: 223px;
-  height: 256%;
+  height: 62%;
   outline: 1px dashed red;
 }
 .move-phone {
@@ -1034,12 +1034,16 @@
   height: 454px;
 }
 .move-phone span {
-  content: "";
+  position: absolute;
   display: block;
   background: url(../imgs/applepay/applepay_01.png) no-repeat center/cover;
   width: 100%;
   height: 100%;
+  transition: .4s ease-out;
 }
+/* .move-phone span:nth-child(3) {
+  translate: 50%;
+} */
 
 /********* 스틱키바*********/
 .stick-area {
@@ -1098,7 +1102,17 @@
 }
 
 /********* 애플페이 3영역 *********/
+.inbox.ap-part3 {
+  height: 2000px;
+}
+
+.ap-part3 .cont-box {
+  align-items: flex-start;
+}
+
 .ap-part3-txt {
+  position: sticky;
+  top: 100px;
   align-content: center;
   text-align: start;
 }
