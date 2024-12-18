@@ -21,7 +21,7 @@ navArea.forEach((el, idx) => {
   // console.log("대상", el, "순번", idx);
   el.addEventListener("mouseover", function () {
     //호출확인
-    console.log("in", el, idx);
+    // console.log("in", el, idx);
     if (idx == 0) {
       hoverArea[0].style.backgroundColor = "#4D63EE";
       card[0].style.translate = "-70%";
@@ -34,13 +34,15 @@ navArea.forEach((el, idx) => {
   });
   el.addEventListener("mouseout", function () {
     // 호출확인
-    console.log("out");
+    // console.log("out");
     hoverArea[idx].style.backgroundColor = "transparent";
     card[0].style.translate = "0%";
     card[0].style.rotate = "y 0deg";
   });
-});
-
+  
+  /////////////// 다음/이전 카드 //////////////
+  
+})
 ///////////////오버시 배경 변하기 기능 /////////////////
 
 ///////////////카드 뒤집기 ////////////
@@ -57,5 +59,9 @@ $(card).click((e) => {
     $(".main-card-name").removeClass("off");
   }
 });
+///////////////카드 뒤집기  ////////////
+
+
+
 
 

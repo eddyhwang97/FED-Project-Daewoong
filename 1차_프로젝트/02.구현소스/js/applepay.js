@@ -20,62 +20,108 @@ const totalItems = 50; // 총 <li>의 개수 (1부터 50까지)
 
 let currentIndex = 1; // <li>의 인덱스를 추적
 
-for (let j = 1; j <= ulCount; j++) {
-  // <ul> 생성
-  const ul = document.createElement("ul");
-  ul.className = `brand-wrap-box${j}`;
+// brandListUp 호출
+window.innnerHTML = brandListUp();
+////brandListUp ////////////////
+function brandListUp() {
+  for (let j = 1; j <= ulCount; j++) {
+    // <ul> 생성
+    const ul = document.createElement("ul");
+    ul.className = `brand-wrap-box${j}`;
 
-  for (let k = 0; k < liCount; k++) {
-    if (currentIndex > totalItems) break; // 50개를 초과하면 중단
+    for (let k = 0; k < liCount; k++) {
+      if (currentIndex > totalItems) break; // 50개를 초과하면 중단
 
-    // <li> 생성
-    const li = document.createElement("li");
+      // <li> 생성
+      const li = document.createElement("li");
 
-    // <img> 생성
-    const img = document.createElement("img");
-    img.src = `./imgs/applepay/brand/ad_${currentIndex}.png`;
+      // <img> 생성
+      const img = document.createElement("img");
+      img.src = `./imgs/applepay/brand/ad_${currentIndex}.png`;
 
-    // <img>를 <li>에 추가
-    li.appendChild(img);
+      // <img>를 <li>에 추가
+      li.appendChild(img);
 
-    // <li>를 <ul>에 추가
-    ul.appendChild(li);
+      // <li>를 <ul>에 추가
+      ul.appendChild(li);
 
-    currentIndex++; // 다음 <li> 인덱스로 이동
+      currentIndex++; // 다음 <li> 인덱스로 이동
+    }
+
+    // <ul>을 부모 요소에 추가
+    brandBox.appendChild(ul);
+  }
+} ////brandListUp ////////////////
+
+
+
+
+
+
+// rollingBanner 함수호출
+window.addEventListener("onload", rollingBanner());
+////////rollingBanner ///////////////
+function rollingBanner() {
+  // 1. 대상선정
+  // (1) 움직이는 대상 : #container ul
+  const $banner = $(brandBox).find("ul");
+  // (2) ul 안 li
+  const $li = $banner.find("li");
+  // (3) 한번에 움직일 거리 : li.width()
+  const liWidth = $li.outerWidth();
+  // console.log($banner,$li,liWidth);
+
+  timer();
+  let current = 0;
+  let $interval;
+  // 롤링배너 시작 지연시간
+  function timer() {
+    let $interval = setInterval(function () {
+      autoRollingBanner();
+    }, 0);
   }
 
-  // <ul>을 부모 요소에 추가
-  brandBox.appendChild(ul);
-}
+  function autoRollingBanner() {
+    // 짝수 배너 css
+    $($banner)
+      .even()
+      .animate(
+        {
+          translate: `-${liWidth}px`,
+        },
+        5000,
+        "linear",
+        function () {
+          $(this).css({ translate: "0" });
+          $(this).append($(this).children("li").eq(0));
+        } /// 애니메이션 후 첫번째 li 뒤에 붙이기
+      ); /// 애니메이션 ////
+    current++;
+    if (current == 9) current = 0;
 
-rollingBanner();
+    $($banner)
+      .odd()
+      .css({
+        justifyContent: "end",
+      })
+      .animate(
+        {
+          translate: `${liWidth}px`,
+        },
+        5000,
+        "linear",
+        function () {
+          $(this).css({ translate: "0" });
+          $(this).prepend($(this).children("li").eq(9));
+        } /// 애니메이션 후 첫번째 li 뒤에 붙이기
+      ); /// 애니메이션 ////
+  } ///autoRollingBanner 함수 //////
+} ////////rollingBanner ///////////////
 
-// 무한롤링배너
-function rollingBanner() {
-  
-    // 1. 대상선정
-    // (2) 움직이는 ul : #container ul
-    const $bannerUl = $(brandBox).find('ul')
-    // (3) 최초 슬라이드 li 수집
 
-    // 2. 배너 애니메이션
+//// scroll act
+// 변경대상 : .move-phone
 
-    // 3. 첫번째 li 맨뒤로 이동
-    
-    const $firstSlide = $($bannerUl).children('li')
-    console.log($bannerUl,$firstSlide);
-    
-    autoRollingBanner();
-    
-    function autoRollingBanner(){
-        let TIME_ANI = 20000;
-    
-        $($bannerUl).eq(0).animate({
-            translate : '-100%'
-        }, TIME_ANI)
-        let list = $bannerUl.children('li').eq(0);
-        console.log(list)
-        $bannerUl.append(list.clone());
-    }
-};
+
+
 
