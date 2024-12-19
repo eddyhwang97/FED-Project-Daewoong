@@ -4,8 +4,27 @@ import myFn from "./my_function.js";
 // console.log("applpay.js");
 // 1. 대상선정
 // (1) 선택대상 : .apple-logo
-const applpay = myFn.qs(".apple-logo");
-
+const appleLogo = myFn.qs(".apple-logo");
+// $(".wrap").hide();
+$(appleLogo).click(()=>{
+  $(".wrap")
+  .css({
+    top: "0",
+    height: "100vh",
+    transition: ".6s"
+  });
+  // 뒷 배경 기능 업애기
+  $(".nav-area").hide();
+})
+////애플페이 페이지 닫기 ////////
+$("#top-close-button-applepage").click(()=>{
+  $(".wrap").css({
+    top: "100%",
+    height: "0",
+    transition: ".6s"
+  })
+  $(".nav-area").show();
+})
 // (2) 이벤트 대상 : .applepay-page
 
 //////////////////// 무한 배너
@@ -127,15 +146,21 @@ const scTarget = document.querySelector('.ap-part3');
 const scTgHeight = scTarget.offsetHeight-454;
 const $mvPhone = $('.move-phone span');
 
+$mvPhone.find('p').css({display: 'none'})
+
 $(window).scroll(()=>{
   let val = getBCR(scTarget);
   if(val<0&&val>-scTgHeight){
     console.log('작동!!!');
-    if(Math.abs(val)>1000)  $mvPhone.eq(4).css({translate:'420%'});
-    else if(Math.abs(val)>800)  $mvPhone.eq(3).css({translate:'320%'});
-    else if(Math.abs(val)>600)  $mvPhone.eq(2).css({translate:'220%'});
-    else if(Math.abs(val)>400)  $mvPhone.eq(1).css({translate:'120%'});
-    else if(Math.abs(val)>200)  $mvPhone.eq(1).css({translate:'60%'});
+
+    if(Math.abs(val)>1000&&Math.abs(val)<2250)  $mvPhone.find('p').css({display : ''});
+    else $mvPhone.find('p').css({display : 'none'});
+    if(Math.abs(val)<=50)  $mvPhone.css({translate:'0'});
+    if(Math.abs(val)>400)  $mvPhone.eq(3).css({translate:'110%'});
+    if(Math.abs(val)>600)  $mvPhone.eq(2).css({translate:'220%'});
+    if(Math.abs(val)>800)  $mvPhone.eq(1).css({translate:'330%'});
+    if(Math.abs(val)>1000)  $mvPhone.eq(0).css({translate:'440%'});
+    if(Math.abs(val)>2250)  $mvPhone.css({translate:'0'});
     
   }
   // console.log(val,scTgHeight);

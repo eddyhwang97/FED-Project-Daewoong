@@ -18,13 +18,13 @@ $(card).click(function() {
   $(this).toggleClass("rotate-card");
   $(this).attr("style", "");
   if ($(this).hasClass("rotate-card")) {
-    $(".nav-area").css({ display: "none" });
-    $(".switch").css({ display: "none" });
+    $(".switch").hide();
     $(".main-card-name").addClass("off");
+    $(this).siblings().hide()
   } else {
     $(".nav-area").css({ display: "" });
     $(".switch").css({ display: "" });
     $(".main-card-name").removeClass("off");
+    $(this).siblings().show()
   }
-  console.log(this,idx);
 });

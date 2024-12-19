@@ -67,6 +67,7 @@
 .apple-logo {
   right: 0;
   height: 40px;
+  z-index: 1;
 }
 .apple-logo a {
   display: block;
@@ -225,12 +226,7 @@
   transform-style: preserve-3d;
   transition: 0.5s;
 }
-.main-card:hover {
-  scale: 1.1;
-}
-.card.rotate-card .card {
-  scale: 1;
-}
+
 .card {
   position: absolute;
   top: 0;
@@ -239,19 +235,11 @@
   height: 100%;
   translate: 0;
   transform-style: preserve-3d;
+  justify-items: center;
 
-  /* 트랜지션 */
-  transition: 1s;
+  transition: .5s;
 }
-.card a {
-  content: "";
-  display: block;
-  width: 100%;
-  height: 100%;
-}
-/* 카드앞면 */
-.card::after {
-  content: "";
+.card-front {
   position: absolute;
   top: 0;
   left: 0;
@@ -261,12 +249,10 @@
   /* 배경이미지 넣기 */
   background: url(../imgs/navercard/img_navercard_1.png) no-repeat 0/100% 100%;
   /* 입체에서 앞면을 z축으로 앞으로 이동 */
-  translate: 0 0 2px;
+  translate: 0 0 0px;
+  transform-style: preserve-3d;
 }
-/* 카드뒷면 */
-.card::before {
-  content: "";
-  text-align: center;
+.card-back {
   position: absolute;
   top: 0;
   left: 0;
@@ -277,13 +263,11 @@
   /* 뒷면이미지를 정상이미지로
   보려면 사실 180deg Y축회전필요! */
   background: #fff no-repeat 0/100% 100%;
-  translate: 0 0 1px;
+  translate: 0 0 -1px;
+  transform-style: preserve-3d;
 }
+
 /* 오베레이 페이지 */
-.rotate-card {
-  rotate: y 180deg;
-  scale: 4;
-}
 /* 카드 아웃 */
 .prev-card {
   left: 100%;
@@ -291,7 +275,6 @@
 .next-card {
   right: 100%;
 }
-
 
 /*===================== 3. 하단버튼영역 설정 =====================*/
 /* 하단 버튼영역 */
@@ -370,91 +353,6 @@
 /* ========================================================
 메인페이지 영역 종료
 ======================================================== */
-/* ========================================================
-메인페이지 카드 펼침 영역 시작
-======================================================== */
-.main-wrap-box2 {
-  background-color: #4483e0; /* 부모박스 설정*/
-  position: relative;
-  max-width: 100vw;
-  height: 100vh;
-}
-.main-card-spread {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  max-width: 1200px;
-  height: 680px;
-  border-radius: 10px;
-  display: grid;
-  place-items: center;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-  gap: 23px;
-}
-
-.spreadcard {
-  width: var(--main-card-width);
-  height: var(--main-card-height);
-  position: relative;
-  box-shadow: 4px 4px 10px #000;
-  transition: 0.4s;
-}
-.spreadcard a {
-  width: 100%;
-  height: 100%;
-  display: block;
-}
-.spreadcard:hover {
-  scale: 1.1;
-}
-.spreadcard::before {
-  position: absolute;
-  font-size: 50px;
-  color: #00a414;
-  text-shadow: 0 0 5px #000;
-  font-family: "josefin Sans", sans-serif;
-  font-weight: bold;
-  text-shadow: 1px 0 BLACK, -1px 0 BLACK, 0 1px BLACK, 0 -1px BLACK;
-
-  top: -50px;
-  left: 50%;
-  translate: -50%;
-}
-.spread-card1::before {
-  content: "NAVER";
-}
-.spread-card2::before {
-  content: "MUSINSA";
-  color: #000;
-}
-.spread-card3::before {
-  content: "STARBUCKS";
-  color: #00704a;
-}
-.spread-card4::before {
-  content: "NEXON";
-  color: #fff;
-}
-/* 카드 이미지 */
-.spread-card1 {
-  background: url(../imgs/navercard/img_navercard_1.png) no-repeat 100%/100%;
-}
-.spread-card2 {
-  background: url(../imgs/musinsacard/img_musinsacard_01.png) no-repeat 100%/100%;
-  margin-top: 150px;
-}
-.spread-card3 {
-  background: url(../imgs/starbucks/img_starbuckscard_01.png) no-repeat 100%/100%;
-}
-.spread-card4 {
-  background: url(../imgs/nexoncard/img_nexoncard_03.png) no-repeat 100%/100%;
-  margin-top: 150px;
-}
-
-/* ========================================================
-메인페이지 카드 펼침 영역 종료
-======================================================== */
 
 /* ============== 서브페이지 시작 ============= */
 
@@ -463,7 +361,7 @@
   max-width: min(1000px, 96vw);
   height: auto;
   margin: 0 auto;
-  padding: 80px 20px;
+  padding: 80px 20px 20px 20px ;
   box-sizing: border-box;
 }
 
@@ -471,9 +369,25 @@
 2. 카드 소개페이지 
 ==================*/
 /* 카드소개페이지 공통 부분 */
+#top-close-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 2.5rem;
+  cursor: pointer;
+}
 .sub-wrap-box {
   background-color: #eeeeee;
-  border-radius: 2rem;
+  border-radius: 1rem;
+}
+.card-detail-page {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+
+  overflow: hidden;
+  overflow-y: scroll;
 }
 
 .inbox {
@@ -503,8 +417,6 @@
   border-radius: 2rem;
 }
 /* 2-1-2. 카드소개 상단 텍스트 */
-.col-5-card-main {
-}
 .card-detail-top-txt {
   margin: 70px 10px 20px 0;
 }
@@ -594,7 +506,7 @@
   height: auto;
   position: relative;
 }
-.card-part1 h1{
+.card-part1 h1 {
   font-size: 4rem;
 }
 
@@ -966,16 +878,38 @@
 }
 
 /******************* 애플페이 소개페이지 *******************/
+.wrap{
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  translate: -50%;
+    width: 1000px;
+    height: 0vh;
+    overflow: hidden;
+    overflow-y: scroll;
+
+}
+.wrap::-webkit-scrollbar {
+  display: none;
+}
+#top-close-button-applepage {
+  position: sticky;
+  top: 10px;
+  left: 96%;
+  font-size: 2.5rem;
+  cursor: pointer;
+  z-index: 5;
+}
 .applepay-page {
   padding: 0;
   background-color: #fff;
   position: relative;
-  height: 100%;
+  
 }
-.applepay-page h1{
+.applepay-page h1 {
   font-size: 4rem;
 }
-.applepay-page h2{
+.applepay-page h2 {
   font-size: 3rem;
 }
 .applepay-page .inbox {
@@ -985,13 +919,15 @@
 /********* 애플페이 1영역 *********/
 .ap-part1 {
   background-color: #000;
-  border-radius: 20px 20px 0 0;
+  border-radius: 1rem 1rem 0 0;
   color: #fff;
   text-align: center;
+
 }
 /* 3-1-1 상단로고 */
 .ap-part1 {
   position: relative;
+  top: -25px;
 }
 .ap-part1-top-logo {
   position: absolute;
@@ -1023,7 +959,7 @@
   top: 2%;
   right: 13%;
   width: 223px;
-  height: 62%;
+  height: 77%;
   outline: 1px dashed red;
 }
 .move-phone {
@@ -1036,19 +972,33 @@
 .move-phone span {
   position: absolute;
   display: block;
-  background: url(../imgs/applepay/applepay_01.png) no-repeat center/cover;
   width: 100%;
   height: 100%;
-  transition: .4s ease-out;
+  transition: 0.6s ease-out;
 }
-/* .move-phone span:nth-child(3) {
-  translate: 50%;
-} */
+.move-phone img{
+width: 100%;
+height: 100%;
+}
+
+
+.move-phone span p {
+  position: absolute;
+  top: 101%;
+  left: 50%;
+  translate: -50%;
+
+  font-size: 1.4rem;
+  color: #5c5c5c;
+}
+.p-on {
+  display: "";
+}
 
 /********* 스틱키바*********/
 .stick-area {
   position: absolute;
-  top: 16.8%;
+  top: 10.2%;
   left: 21%;
   translate: -50%;
   max-width: 385px;
@@ -1067,7 +1017,7 @@
   display: flex;
   justify-content: space-evenly;
   align-items: center;
-  gap :10px;
+  gap: 10px;
 }
 .stickbar li:hover {
   background-color: #cccccc;
@@ -1103,7 +1053,7 @@
 
 /********* 애플페이 3영역 *********/
 .inbox.ap-part3 {
-  height: 2000px;
+  height: 3000px;
 }
 
 .ap-part3 .cont-box {
@@ -1115,6 +1065,7 @@
   top: 100px;
   align-content: center;
   text-align: start;
+  margin: 100px 0 100px 0;
 }
 
 .ap-part3-txt1 p {
@@ -1122,7 +1073,7 @@
   font-weight: bold;
   line-height: 1.5;
 }
-.ap-part3-txt2 ul{
+.ap-part3-txt2 ul {
   margin-top: 20px;
 }
 .ap-part3-txt2 li {
@@ -1195,14 +1146,14 @@
 }
 
 /********* 애플페이 6영역 *********/
-.ap-part6-txt p{
-font-size: 4rem;
-font-weight: bold;
+.ap-part6-txt p {
+  font-size: 4rem;
+  font-weight: bold;
 }
 /* 브랜드박스 */
 .brand-box {
   position: absolute;
-  width: min(920px,88vw);
+  width: min(920px, 88vw);
   height: 350px;
   left: 50%;
   translate: -50%;
@@ -1221,7 +1172,7 @@ font-weight: bold;
   height: 70px;
 }
 .brand-box ul li img {
- width: 140px;
+  width: 140px;
   height: 100%;
 }
 
