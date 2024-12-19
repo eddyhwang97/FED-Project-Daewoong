@@ -146,13 +146,15 @@ const scTarget = document.querySelector('.ap-part3');
 const scTgHeight = scTarget.offsetHeight-454;
 const $mvPhone = $('.move-phone span');
 
-$mvPhone.find('p').css({display: 'none'})
+$mvPhone.find('p').css({display: 'none'});
 
-$(window).scroll(()=>{
+// console.log(scTarget,scTgHeight,$mvPhone);
+
+$('.wrap').scroll(()=>{
   let val = getBCR(scTarget);
   if(val<0&&val>-scTgHeight){
     console.log('작동!!!');
-
+    
     if(Math.abs(val)>1000&&Math.abs(val)<2250)  $mvPhone.find('p').css({display : ''});
     else $mvPhone.find('p').css({display : 'none'});
     if(Math.abs(val)<=50)  $mvPhone.css({translate:'0'});
@@ -163,7 +165,7 @@ $(window).scroll(()=>{
     if(Math.abs(val)>2250)  $mvPhone.css({translate:'0'});
     
   }
-  // console.log(val,scTgHeight);
+  console.log(val,scTgHeight);
 }); ///// scroll ////
 
 
