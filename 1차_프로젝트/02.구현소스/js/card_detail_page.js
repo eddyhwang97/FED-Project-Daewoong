@@ -107,7 +107,21 @@ $(".view-card-detail").click((idx, e) => {
     // html 넣기
     $(el).html(hCode);
   }); ///코드 넣기 ///
+
+
+
   $(".select-card-popup").fadeIn(400);
+
+  // 클릭된 요소의 순번
+  let seq = $(event.currentTarget).index();
+  console.log(seq);
+
+  // 처음 열때 인댁싱 파일 지정필수
+  swiper.activeIndex = seq;
+
+  // 그 후 이동시 이동함수 필수
+  swiper.slideTo(seq,0);
+
 });
 
 // 3. 클로즈 버튼 클릭시 팝업 닫기
@@ -117,32 +131,34 @@ $("#close-button").click(() => {
 
 // '.view-card-detail 클릭시 span 값 불러오기
 // $(".view-card-detail").click(function () {
-//   // text 값 불러오기
 
-//   let txt = "";
 
-//   // txt값 할당하기
-//   txt = $(this, "span").text().trim().toLowerCase();
-//   console.log(txt);
+  // text 값 불러오기
 
-//   // txt 값 넣기
-//   $(".card-name-sec p").first().text(txt);
+  // let txt = "";
 
-//   // txt 값에 따라 이미지 넣기
+  // // txt값 할당하기
+  // txt = $(this, "span").text().trim().toLowerCase();
+  // console.log(txt);
+
+  // // txt 값 넣기
+  // $(".card-name-sec p").first().text(txt);
+
+  // // txt 값에 따라 이미지 넣기
 
   
-//       $(".card-detail-sec-fornt").find("img").attr("src", popCard[txt][0]);
-//       $(".card-detail-sec-back").find("img").attr("src", popCard[txt][1]);
+  //     $(".card-detail-sec-fornt").find("img").attr("src", popCard[txt][0]);
+  //     $(".card-detail-sec-back").find("img").attr("src", popCard[txt][1]);
 
-//   //  스위치문 이용하여 값 넣기
-//   // switch (txt) {
-//   //   case Graffiti:
-//   //     $(".card-detail-sec-fornt").find("img").attr("src");
-//   //     $(".card-detail-sec-back").find("img").attr("src", popCard.Graffiti[0]);
-//   //     break;
-//   // }
-//   // console.log(popCard.Graffiti[0]);
+  //  스위치문 이용하여 값 넣기
+  // switch (txt) {
+  //   case Graffiti:
+  //     $(".card-detail-sec-fornt").find("img").attr("src");
+  //     $(".card-detail-sec-back").find("img").attr("src", popCard.Graffiti[0]);
+  //     break;
+  // }
+  // console.log(popCard.Graffiti[0]);
 
-//   // 팝업 보이기
-//   $(".select-card-popup").fadeIn(400);
+  // 팝업 보이기
+  // $(".select-card-popup").fadeIn(400);
 // });
