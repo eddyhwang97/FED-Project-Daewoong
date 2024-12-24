@@ -35,6 +35,7 @@
   height: 100vh;
   background: var(--main-bg-color);
 }
+
 /* ============================================
 메인페이지 영역 시작
 ============================================ */
@@ -197,7 +198,9 @@
   left: 50%;
   translate: -50%;
 }
-
+.card-select-area {
+  perspective: 1000px;
+}
 .main-card-name:before {
   content: "NAVER";
   position: absolute;
@@ -227,7 +230,7 @@
   transition: 0.5s;
 }
 
-.card {
+.main-card .card:nth-of-type(1) {
   position: absolute;
   top: 0;
   left: 0;
@@ -237,8 +240,19 @@
   transform-style: preserve-3d;
   justify-items: center;
 
-  transition: .5s;
+  transition: 0.5s;
 }
+.card {
+  position: absolute;
+
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  justify-items: center;
+
+  transition: 0.5s;
+}
+
 .card-front {
   position: absolute;
   top: 0;
@@ -249,9 +263,10 @@
   /* 배경이미지 넣기 */
   background: url(../imgs/navercard/img_navercard_1.png) no-repeat 0/100% 100%;
   /* 입체에서 앞면을 z축으로 앞으로 이동 */
-  translate: 0 0 0px;
+  translate: 0 0 2px;
   transform-style: preserve-3d;
 }
+
 .card-back {
   position: absolute;
   top: 0;
@@ -263,7 +278,7 @@
   /* 뒷면이미지를 정상이미지로
   보려면 사실 180deg Y축회전필요! */
   background: #fff no-repeat 0/100% 100%;
-  translate: 0 0 -1px;
+  translate: 0 0 1px;
   transform-style: preserve-3d;
 }
 
@@ -274,80 +289,6 @@
 }
 .next-card {
   right: 100%;
-}
-
-/*===================== 3. 하단버튼영역 설정 =====================*/
-/* 하단 버튼영역 */
-.foot-area {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 100px;
-}
-.switch {
-  position: relative;
-  border-radius: 4rem;
-  width: 140px;
-  height: 75px;
-  background: #000;
-  display: block;
-  margin: 0 auto;
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-}
-.main-mode {
-  width: 63px;
-  height: 63px;
-  display: flex;
-  position: relative;
-  justify-content: center;
-  align-items: center;
-}
-.main-bg {
-  background: #fff;
-  border-radius: 100%;
-  height: 100%;
-  width: 100%;
-}
-.main-icon {
-  width: 23px;
-  height: 33px;
-  border-radius: 0.3rem;
-  display: inline-block;
-  position: absolute;
-  background: #000;
-}
-.spread-mode {
-  width: 63px;
-  height: 63px;
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.spread-bg {
-  background: #000;
-  border-radius: 100%;
-  height: 100%;
-  width: 100%;
-  position: absolute;
-  z-index: -1;
-}
-.spread-icon {
-  width: 30px;
-  height: 30px;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-}
-.dot {
-  width: 10px;
-  height: 10px;
-  display: block;
-  border-radius: 50%;
-  background: #fff;
 }
 
 /* ========================================================
@@ -361,7 +302,7 @@
   max-width: min(1000px, 96vw);
   height: auto;
   margin: 0 auto;
-  padding: 80px 20px 20px 20px ;
+  padding: 20px;
   box-sizing: border-box;
 }
 
@@ -375,6 +316,7 @@
   right: 10px;
   font-size: 2.5rem;
   cursor: pointer;
+  z-index: 5;
 }
 .sub-wrap-box {
   background-color: #eeeeee;
@@ -382,9 +324,11 @@
 }
 .card-detail-page {
   position: absolute;
-  top: 0;
-  min-width: 1000px;
-  height: 100%;
+  top: 50%;
+  left: 50%;
+  translate: -50% -50%;
+  width: 255px;
+  height: 403px;
 
   overflow: hidden;
   overflow-y: scroll;
@@ -510,10 +454,10 @@
   font-size: 4rem;
 }
 
-.overlay-box .card-part1 img {
+/* .overlay-box .card-part1 img {
   width: 230px;
   height: 364px;
-}
+} */
 
 /* 카드 그리드 */
 .card-detail-grid {
@@ -578,85 +522,6 @@
 /************* 선택카드 디테일 팝업페이지 *************/
 
 /* 디테일 팝업페이지 배경 */
-.select-card-popup {
-  max-width: 580px;
-  box-sizing: border-box;
-  background: #030303ed;
-  color: #fff;
-  border-radius: 3rem;
-  position: absolute;
-  top: 23%;
-  left: 50%;
-  translate: -50%;
-
-  padding-top: 50px;
-}
-/* 닫기버튼 */
-#close-button {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  font-size: 2.5rem;
-  cursor: pointer;
-}
-
-/* 카드이름부분 */
-.card-name-sec {
-  text-align: center;
-}
-/* 카드이름 폰트설정 */
-.overlay-box .card-name-sec p {
-  font-size: 1.6rem;
-  font-weight: bold;
-}
-/* 카드 이미지 부분 */
-.card-detail-sec {
-  display: flex;
-  justify-content: space-evenly;
-  margin-bottom: 2rem;
-
-  margin-top: 40px;
-}
-/* 카드 이미지 앞뒤 글자 */
-.card-detail-sec aside {
-  position: absolute;
-  bottom: -2.5rem;
-  left: 0;
-  width: 100%;
-  text-align: center;
-  font-size: 1.6rem;
-  font-weight: bold;
-}
-/* 카드 이미지 앞면 */
-.card-detail-sec-fornt {
-  position: relative;
-  background: url(../imgs/navercard/img_navercard_1.png) no-repeat center/100%;
-  width: 170px;
-  height: 270px;
-}
-/* 카드이미지 뒷면 */
-.card-detail-sec-back {
-  position: relative;
-  background: url(../imgs/navercard/img_navercard_back_1.png) no-repeat
-    center/100%;
-  width: 170px;
-  height: 270px;
-}
-/* 불릿 구역 */
-.bullet-sec {
-  width: 100%;
-  height: 10px;
-}
-/* 카드 설명 */
-.card-txt-sec {
-  margin-top: 2rem;
-  font-size: 1.6rem;
-}
-/* 카드설명 폰트설정 */
-.overlay-box .card-txt-sec p {
-  text-align: center;
-  font-size: 1.6rem;
-}
 
 /********* 카드소개페이지 2영역 *********/
 .overlay-box .card-part2 {
@@ -866,31 +731,27 @@
   list-style-type: "- ";
   list-style-position: inside;
 }
-.card-part5::after {
-  position: absolute;
-  margin-top: 20px;
-  left: 50%;
-  translate: -50%;
-  width: 960px;
-  content: "";
-  display: block;
-  border: 0.5px solid #000;
-}
 
 /******************* 애플페이 소개페이지 *******************/
-.wrap{
+.wrap {
   position: absolute;
   top: 100%;
   left: 50%;
   translate: -50%;
-    width: 100%;
-    height: 0vh;
-    overflow: hidden;
-    overflow-y: scroll;
-
+  width: 100%;
+  height: 0vh;
+  overflow: hidden;
+  overflow-y: scroll;
 }
 .wrap::-webkit-scrollbar {
   display: none;
+}
+/* 닫기버튼 */
+.close-stick-area {
+  position: absolute;
+  width: 50px;
+  height: 86%;
+  right: 2%;
 }
 #top-close-button-applepage {
   position: sticky;
@@ -904,7 +765,6 @@
   padding: 0;
   background-color: #fff;
   position: relative;
-  
 }
 .applepay-page h1 {
   font-size: 4rem;
@@ -922,12 +782,10 @@
   border-radius: 1rem 1rem 0 0;
   color: #fff;
   text-align: center;
-
 }
 /* 3-1-1 상단로고 */
 .ap-part1 {
   position: relative;
-  top: -25px;
 }
 .ap-part1-top-logo {
   position: absolute;
@@ -959,8 +817,7 @@
   top: 2%;
   right: 13%;
   width: 223px;
-  height: 77%;
-  outline: 1px dashed red;
+  height: 71%;
 }
 .move-phone {
   position: sticky;
@@ -976,18 +833,17 @@
   height: 100%;
   transition: 0.6s ease-out;
 }
-.move-phone img{
-width: 100%;
-height: 100%;
+.move-phone img {
+  width: 100%;
+  height: 100%;
 }
-
 
 .move-phone span p {
   position: absolute;
   top: 101%;
-  left: 50%;
-  translate: -50%;
-
+  width: 100%;
+  text-align: center;
+  font-weight: bold;
   font-size: 1.4rem;
   color: #5c5c5c;
 }
@@ -996,22 +852,23 @@ height: 100%;
 }
 
 /********* 스틱키바*********/
-.stick-area {
+.sticky-area {
   position: absolute;
-  top: 10.2%;
+  top: 9.4%;
   left: 21%;
   translate: -50%;
   max-width: 385px;
-  height: 70%;
+  height: 80%;
+  z-index: 10;
 }
-.stickbar {
+.stickybar {
   position: sticky;
   top: 1%;
   max-width: min(385px, 41vw);
   max-height: 50px;
   border-radius: 3rem;
 }
-.stickbar ul {
+.stickybar ul {
   height: 100%;
   list-style: none;
   display: flex;
@@ -1019,10 +876,10 @@ height: 100%;
   align-items: center;
   gap: 10px;
 }
-.stickbar li:hover {
+.stickybar li:hover {
   background-color: #cccccc;
 }
-.stickbar li {
+.stickybar li {
   font-size: 2rem;
   padding: 8px;
   border-radius: 3rem;
@@ -1030,7 +887,7 @@ height: 100%;
   background-color: #dfdfdf;
   font-weight: bold;
 }
-.stickbar li:nth-child(1) {
+.stickybar li:nth-child(1) {
   color: #fff;
   background-color: #000;
 }
@@ -1175,5 +1032,138 @@ height: 100%;
   width: 140px;
   height: 100%;
 }
+/********* 애플페이 7영역 *********/
 
 /* ============== 서브페이지 종료 ============= */
+
+.select-card-popup {
+  max-width: 580px;
+  box-sizing: border-box;
+  background: #030303ed;
+  color: #fff;
+  border-radius: 3rem;
+  position: absolute;
+  top: 26%;
+  left: 50%;
+  translate: -50%;
+
+  z-index: 4;
+}
+
+/* 닫기버튼 */
+#close-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 2.5rem;
+  cursor: pointer;
+  z-index: 5;
+}
+
+/* 카드이름부분 */
+.card-name-sec {
+  text-align: center;
+}
+/* 카드이름 폰트설정 */
+.overlay-box .card-name-sec p {
+  font-size: 2rem;
+  font-weight: bold;
+}
+/* 카드 이미지 부분 */
+.card-detail-sec {
+  display: flex;
+  justify-content: space-evenly;
+  margin: 30px 0;
+  gap: 10px;
+}
+/* 카드 이미지 앞뒤 글자 */
+.card-detail-sec aside {
+  width: 100%;
+  text-align: center;
+  font-size: 1.6rem;
+  font-weight: bold;
+}
+/* 카드 이미지 앞면 */
+.card-detail-sec-fornt img {
+  position: relative;
+  width: 170px;
+  height: 270px;
+}
+/* 카드이미지 뒷면 */
+.card-detail-sec-back img {
+  position: relative;
+  width: 170px;
+  height: 270px;
+}
+
+/* 카드 설명 */
+.card-txt-sec {
+  margin-top: 2rem;
+  font-size: 1.6rem;
+}
+/* 카드설명 폰트설정 */
+.overlay-box .card-txt-sec p {
+  text-align: center;
+  font-size: 1.6rem;
+}
+.popup-wrap {
+  margin: 25px 0;
+}
+/* ============스와이퍼============ */
+.card-select-area {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  height: 100%;
+}
+.swiper {
+  width: 100%;
+  height: 100%;
+}
+.swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  background: transparent;
+  justify-content: center;
+  align-items: center;
+}
+
+/* ================로딩화면=============== */
+.loadbg {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  z-index: 9999;
+  
+}
+.bg3{
+  background: #000;
+}
+.bg2{
+  background: #4D63EE;
+}
+.bg1{
+  background: #EE554D;
+}
+
+.bg-logo {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  translate: -50% -50%;
+  width: 50vw;
+  z-index: 99999;
+
+  content: "";
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.bg-logo span::after {
+  content: "";
+  display: block;
+  border: 1px solid #fff;
+  height: 32px;
+}

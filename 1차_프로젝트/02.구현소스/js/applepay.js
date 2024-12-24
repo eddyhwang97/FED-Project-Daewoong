@@ -6,25 +6,26 @@ import myFn from "./my_function.js";
 // (1) 선택대상 : .apple-logo
 const appleLogo = myFn.qs(".apple-logo");
 // $(".wrap").hide();
-$(appleLogo).click(()=>{
-  $(".wrap")
-  .css({
-    top: "0",
-    height: "100vh",
-    transition: ".6s"
+$(appleLogo).click(() => {
+  $(".logo").hide();
+  $(".wrap").css({
+    top: "1%",
+    height: "99vh",
+    transition: ".6s",
   });
   // 뒷 배경 기능 업애기
   $(".nav-area").hide();
-})
+});
 ////애플페이 페이지 닫기 ////////
-$("#top-close-button-applepage").click(()=>{
+$("#top-close-button-applepage").click(() => {
+  $(".logo").show();
   $(".wrap").css({
     top: "100%",
     height: "0",
-    transition: ".6s"
-  })
+    transition: ".6s",
+  });
   $(".nav-area").show();
-})
+});
 // (2) 이벤트 대상 : .applepay-page
 
 //////////////////// 무한 배너
@@ -71,11 +72,6 @@ function brandListUp() {
     brandBox.appendChild(ul);
   }
 } ////brandListUp ////////////////
-
-
-
-
-
 
 // rollingBanner 함수호출
 window.addEventListener("onload", rollingBanner());
@@ -137,36 +133,148 @@ function rollingBanner() {
   } ///autoRollingBanner 함수 //////
 } ////////rollingBanner ///////////////
 
-
 //// scroll act
 // 변경대상 : .move-phone
-const getBCR = x => x.getBoundingClientRect().top;
+const getBCR = (x) => x.getBoundingClientRect().top;
 
-const scTarget = document.querySelector('.ap-part3');
-const scTgHeight = scTarget.offsetHeight-454;
-const $mvPhone = $('.move-phone span');
+const scTarget = document.querySelector(".ap-part3");
+const scTgHeight = scTarget.offsetHeight - 454;
+const $mvPhone = $(".move-phone span");
 
-$mvPhone.find('p').css({display: 'none'});
+$mvPhone.find("p").hide();
 
-// console.log(scTarget,scTgHeight,$mvPhone);
-
-$('.wrap').scroll(()=>{
+$(".wrap").scroll(() => {
   let val = getBCR(scTarget);
-  if(val<0&&val>-scTgHeight){
-    console.log('작동!!!');
-    
-    if(Math.abs(val)>1000&&Math.abs(val)<2250)  $mvPhone.find('p').css({display : ''});
-    else $mvPhone.find('p').css({display : 'none'});
-    if(Math.abs(val)<=50)  $mvPhone.css({translate:'0'});
-    if(Math.abs(val)>400)  $mvPhone.eq(3).css({translate:'110%'});
-    if(Math.abs(val)>600)  $mvPhone.eq(2).css({translate:'220%'});
-    if(Math.abs(val)>800)  $mvPhone.eq(1).css({translate:'330%'});
-    if(Math.abs(val)>1000)  $mvPhone.eq(0).css({translate:'440%'});
-    if(Math.abs(val)>2250)  $mvPhone.css({translate:'0'});
-    
+  if (val < 0 && val > -scTgHeight) {
+    // console.log("작동!!!");
+    // 설명글 보이기
+    if (Math.abs(val) > 100 && Math.abs(val) < 2500) {
+      $mvPhone.find("p").show();
+    } else {
+      $mvPhone.find("p").hide();
+    }
+
+    // 1구간 eq(4) 메인
+    if (Math.abs(val) > 100 && Math.abs(val) < 500)
+      $mvPhone
+        .eq(4)
+        .show()
+        .css({ translate: "0" })
+        .prev()
+        .css({ translate: "110%" })
+        .prev()
+        .css({ translate: "220%" })
+        .prev()
+        .css({ translate: "330%" })
+        .prev()
+        .css({ translate: "440%" });
+
+    // 2구간 eq(3) 메인
+    if (Math.abs(val) > 500 && Math.abs(val) < 1000)
+      $mvPhone
+        .eq(4)
+        .hide()
+        .prev()
+        .show()
+        .css({ translate: "0" })
+        .prev()
+        .css({ translate: "110%" })
+        .prev()
+        .css({ translate: "220%" })
+        .prev()
+        .css({ translate: "330%" });
+
+    // 3구간 eq(2) 메인
+    if (Math.abs(val) > 1000 && Math.abs(val) < 1500)
+      $mvPhone
+        .eq(3)
+        .hide()
+        .prev()
+        .show()
+        .css({ translate: "0" })
+        .prev()
+        .css({ translate: "110%" })
+        .prev()
+        .css({ translate: "220%" });
+
+    // 4구간 eq(1) 메인
+    if (Math.abs(val) > 1500 && Math.abs(val) < 2000)
+      $mvPhone
+        .eq(2)
+        .hide()
+        .prev()
+        .show()
+        .css({ translate: "0" })
+        .prev()
+        .css({ translate: "110%" });
+    // 5구간 eq(0) 메인
+    if (Math.abs(val) > 2000 && Math.abs(val) < 2500)
+      $mvPhone.eq(1).hide().prev().css({ translate: "0" });
+    if (Math.abs(val) > 2500 && Math.abs(val) < 3000)
+      $mvPhone.eq(0).find("img").attr("src", "./imgs/applepay/applepay_07.png");
   }
-  console.log(val,scTgHeight);
+  // 작동 안할시
+  else $mvPhone.css({ translate: "0" });
+  // console.log(val,scTgHeight);
 }); ///// scroll ////
 
+/////////// stick bar 바로가기 기능 /////////////
 
+// 이벤트 대상 .stickabr li
+const $goScr = $(".stickybar li");
+// console.log($goScr)
+// 변경대상 .wrap
 
+// moveTo 호출
+moveTo();
+
+function moveTo() {
+  let movesec1 = 600;
+  let movesec2 = 5300;
+  let movesec3 = 5700;
+
+  // 스크롤 값 구하기
+  $(".wrap").scroll(() => {
+    let val = $(".wrap").scrollTop();
+    console.log(val);
+  });
+
+  // $goScr.eq(0).click(function () {
+  //   // console.log('hi')
+  // });
+  // $goScr.eq(1).click(function () {
+  //   // console.log('hi')
+  //   // 해당 스크롤 위치로 이동
+  // });
+  // $goScr.eq(2).click(function () {
+  //   // console.log('hi')
+  // });
+
+  // 닫기버튼 색 변하기
+  chCloseBtn();
+
+  function chCloseBtn() {
+    if ($(".wrap").scrollTop() < 580)
+      $(".close-stick-area>i").attr("style", "color : #fff");
+    else if ($(".wrap").scrollTop() > 580) {
+      $(".close-stick-area>i").attr("style", "color : #000");
+    }
+  }
+
+  $goScr.each((idx, el) => {
+    $(el).click(function () {
+      // 클릭된 li색 바꾸기
+      $(this)
+        .css({ backgroundColor: "black", color: "white" })
+        .siblings()
+        .css({ backgroundColor: "#ccc", color: "#707070" });
+      if (idx == 0) {
+        $(".wrap").animate({ scrollTop: movesec1 }, 1000);
+      } else if (idx == 1) {
+        $(".wrap").animate({ scrollTop: movesec2 }, 500);
+      } else if (idx == 2) {
+        $(".wrap").animate({ scrollTop: movesec3 }, 500);
+      }
+    });
+  });
+}

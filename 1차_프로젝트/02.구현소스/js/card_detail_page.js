@@ -3,24 +3,137 @@ import myFn from "./my_function.js";
 
 console.log("card_detail_page", myFn);
 
-////////// 팝업페이지 보이기 닫기 기능 /////////
-// 1. 대상선정
-// (1) 선택대상 : .view-card-detail
-const viewCard = myFn.qsa(".view-card-detail");
+// ///////선택된 카드 바꾸는 기능
+// // 카드 객체 값\
+let popCard = {
+  Graffiti: [
+    "./imgs/navercard/img_navercard_1.png",
+    "../imgs/navercard/img_navercard_back_1.png",
+  ],
 
-// (2) 이벤트 대상 : #close-button
-const closeButton = myFn.qs("#close-button");
+  line: [
+    "./imgs/navercard/img_navercard_2.png",
+    "../imgs/navercard/img_navercard_back_2.png",
+  ],
 
-// (3) 이벤트 대상 : .select-card-popup
-const detailPopup = myFn.qs(".select-card-popup");
-// 팝업 안보이게 설정
-detailPopup.style.display = "none";
+  type: [
+    "../imgs/navercard/img_navercard_3.png",
+    "../imgs/navercard/img_navercard_back_3.png",
+  ],
 
-// 2. 이벤트 설정
-$(viewCard).click(() => {
-  console.log("Click");
-  $(detailPopup).fadeIn(600, "easeOutCirc").css({ zIndex: "2" });
+  joy: [
+    "../imgs/navercard/img_navercard_4.png",
+    "../imgs/navercard/img_navercard_back_4.png",
+  ],
+
+  tube: [
+    "../imgs/navercard/img_navercard_5.png",
+    "../imgs/navercard/img_navercard_back_5.png",
+  ],
+
+  core: [
+    "../imgs/navercard/img_navercard_6.png",
+    "../imgs/navercard/img_navercard_back_6.png",
+  ],
+};
+
+// <!-- Initialize Swiper -->
+var swiper = new Swiper(".mySwiper", {
+  cssMode: true,
+  navigation: {
+    nextEl: ".swiper-button-next",
+    prevEl: ".swiper-button-prev",
+  },
+  pagination: {
+    el: ".swiper-pagination",
+    // type: "fraction",
+  },
+  mousewheel: true,
+  keyboard: true,
 });
-$(closeButton).click(() => {
-  $(detailPopup).fadeOut(600, "easeOutCirc");
+
+// 스와이퍼 슬라이드 안에 코드넣기
+
+////////// 팝업페이지 보이기 닫기 기능 /////////
+// 1. 팝업 숨기기
+$(".select-card-popup").hide();
+
+// // 2. 디테일 카드 클릭시 팝업 나오기
+$(".view-card-detail").click((idx, e) => {
+  $(".swiper-slide").each((idx, el) => {
+    let hCode = [
+      `
+  <div class="popup-wrap">
+    <h2 class="blind">선택카드디테일 팝업페이지</h2>
+    <div class="cont-box">
+      <div class="col-1"></div>
+      <div class="col-10">
+        <section class="card-name-sec">
+          <p></p>
+          <p>플라스틱플레이트</p>
+        </section>
+        <section class="card-detail-sec">
+          <div class="card-detail-sec-fornt">
+           <img src="">
+            <aside>-앞면-</aside>
+          </div>
+          <div class="card-detail-sec-back">
+          <img src="">
+            <aside>-뒷면-</aside>
+          </div>
+        </section>
+        
+        <section class="card-txt-sec">
+          <p>
+            네이버플러스 멤버십의 로고와 컬러를 친숙한
+            키보드로 재해석했습니다.
+          </p>
+          <p>심플한 레이아웃과 볼드한 키보드 디자인으로</p>
+          <p>
+            네이버플러스 멤버십의 로고 이미지를 위트 있게
+            담아냈습니다.
+          </p>
+        </section>
+      </div>
+      <div class="col-1"></div>
+    </div>
+  </div>`,
+    ];
+    // html 넣기
+    $(".swiper-slide").html(hCode);
+  }); ///코드 넣기 ///
+  $(".select-card-popup").fadeIn(400);
+});
+
+// 3. 클로즈 버튼 클릭시 팝업 닫기
+$("#close-button").click(() => {
+  $(".mySwiper").fadeOut(400);
+});
+
+// '.view-card-detail 클릭시 span 값 불러오기
+$(".view-card-detail").click(function () {
+  // text 값 불러오기
+
+  let txt = "";
+
+  // txt값 할당하기
+  txt = $(this, "span").text();
+  // console.log(txt);
+
+  // txt 값 넣기
+  $(".card-name-sec p").first().text(txt);
+
+  // txt 값에 따라 이미지 넣기
+
+  //  스위치문 이용하여 값 넣기
+  switch (txt) {
+    case Graffiti:
+      $(".card-detail-sec-fornt").find("img").attr("src");
+      $(".card-detail-sec-back").find("img").attr("src", popCard.Graffiti[0]);
+      break;
+  }
+  console.log(popCard.Graffiti[0]);
+
+  // 팝업 보이기
+  $(".select-card-popup").fadeIn(400);
 });

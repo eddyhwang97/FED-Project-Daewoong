@@ -56,6 +56,10 @@
   html {
     font-size: 6px;
   }
+  .view-card-detail {
+    width: 200px;
+    height: 320px;
+}
 }
 @media screen and (max-width: 700px) {
   .card-detail-top-img img {
