@@ -1,7 +1,7 @@
 // 현대카드 카드 디테일 페이지 JS - card_detail_page.js
 import myFn from "./my_function.js";
 
-console.log("card_detail_page", myFn);
+// console.log("card_detail_page", myFn);
 
 // ///////선택된 카드 바꾸는 기능
 // // 카드 객체 값\
@@ -60,12 +60,12 @@ $(".select-card-popup").hide();
 
 // popCard객체의 배열화!
 const keyPopCard = Object.keys(popCard);
-console.log(keyPopCard);
+// console.log(keyPopCard);
 
 // // 2. 디테일 카드 클릭시 팝업 나오기
 $(".view-card-detail").click((idx, e) => {
   $(".swiper-slide").each((idx, el) => {
-    console.log(idx,el,keyPopCard[idx]);
+    // console.log(idx,el,keyPopCard[idx]);
     let hCode = 
       `
   <div class="popup-wrap">
@@ -114,7 +114,7 @@ $(".view-card-detail").click((idx, e) => {
 
   // 클릭된 요소의 순번
   let seq = $(event.currentTarget).index();
-  console.log(seq);
+  // console.log(seq);
 
   // 처음 열때 인댁싱 파일 지정필수
   swiper.activeIndex = seq;

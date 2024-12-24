@@ -60,6 +60,7 @@
 .hd-logo {
   left: 0;
   height: 40px;
+  z-index: 1;
 }
 .hd-logo img {
   height: 40px;
@@ -190,7 +191,7 @@
 
 /* 카드이름 */
 
-.main-card-name.off:before {
+.card.off::before {
   content: "";
   position: absolute;
 
@@ -201,7 +202,23 @@
 .card-select-area {
   perspective: 1000px;
 }
-.main-card-name:before {
+/*4번째 이름 */
+.nexon::before {
+  content: "NEXON";
+  position: absolute;
+  font-size: 50px;
+  color: #fff;
+  text-shadow: 0 0 5px #000;
+  font-family: "josefin Sans", sans-serif;
+  font-weight: bold;
+  text-shadow: 1px 0 BLACK, -1px 0 BLACK, 0 1px BLACK, 0 -1px BLACK;
+
+  top: -50px;
+  left: 50%;
+  translate: -50%;
+}
+/* 3번째 이름 */
+.naver::before {
   content: "NAVER";
   position: absolute;
   font-size: 50px;
@@ -215,9 +232,39 @@
   left: 50%;
   translate: -50%;
 }
+/* 2번째 이름 */
+.musinsa::before {
+  content: "MUSINSA";
+  position: absolute;
+  font-size: 50px;
+  color: #000;
+  text-shadow: 0 0 5px #000;
+  font-family: "josefin Sans", sans-serif;
+  font-weight: bold;
+  text-shadow: 1px 0 BLACK, -1px 0 BLACK, 0 1px BLACK, 0 -1px BLACK;
+
+  top: -50px;
+  left: 50%;
+  translate: -50%;
+}
+/* 1번째 이름 */
+.starbucks::before {
+  content: "STARBUCKS";
+  position: absolute;
+  font-size: 50px;
+  color: #00704a;
+  text-shadow: 0 0 5px #000;
+  font-family: "josefin Sans", sans-serif;
+  font-weight: bold;
+  text-shadow: 1px 0 BLACK, -1px 0 BLACK, 0 1px BLACK, 0 -1px BLACK;
+
+  top: -50px;
+  left: 50%;
+  translate: -50%;
+}
 
 /* 메인카드 영역 */
-.main-card {
+.card-box{
   perspective: 1000px;
   position: absolute;
   width: var(--main-card-width);
@@ -228,43 +275,38 @@
 
   transform-style: preserve-3d;
   transition: 0.5s;
+
 }
 
-.main-card .card:nth-of-type(1) {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  translate: 0;
-  transform-style: preserve-3d;
-  justify-items: center;
-
-  transition: 0.5s;
-}
 .card {
   position: absolute;
-
   width: 100%;
   height: 100%;
   transform-style: preserve-3d;
   justify-items: center;
 
-  transition: 0.5s;
-}
+  rotate: y 0;
+  transition: .5s;
+  border-radius: 1rem;
 
+  box-shadow: 0 0 10px #000;  
+
+}
+/* 카드 앞면 */
 .card-front {
   position: absolute;
   top: 0;
-  left: 0;
   width: 100%;
   height: 100%;
   border-radius: 10px;
   /* 배경이미지 넣기 */
-  background: url(../imgs/navercard/img_navercard_1.png) no-repeat 0/100% 100%;
   /* 입체에서 앞면을 z축으로 앞으로 이동 */
   translate: 0 0 2px;
   transform-style: preserve-3d;
+}
+.card-front img {
+  width: 100%;
+  height: 100%;
 }
 
 .card-back {
@@ -282,13 +324,22 @@
   transform-style: preserve-3d;
 }
 
-/* 오베레이 페이지 */
-/* 카드 아웃 */
-.prev-card {
-  left: 100%;
+/* 카드위치 조정 */
+/* 첫번째 카드 */
+.card-box .card:nth-child(1){
+  left: 400%;
 }
-.next-card {
-  right: 100%;
+/* 센터카드 */
+.card-box .card:nth-child(2){
+  left: 0;
+}
+/* 세번째 카드 */
+.card-box .card:nth-child(3){
+  left: -400%;
+}
+/* 네번째 카드 */
+.card-box .card:nth-child(4){
+  left: -400%;
 }
 
 /* ========================================================
@@ -1136,16 +1187,15 @@
   height: 100vh;
   top: 0;
   z-index: 9999;
-  
 }
-.bg3{
+.bg3 {
   background: #000;
 }
-.bg2{
-  background: #4D63EE;
+.bg2 {
+  background: #4d63ee;
 }
-.bg1{
-  background: #EE554D;
+.bg1 {
+  background: #ee554d;
 }
 
 .bg-logo {
