@@ -162,3 +162,14 @@ $("#close-button").click(() => {
   // 팝업 보이기
   // $(".select-card-popup").fadeIn(400);
 // });
+
+// 네이버 페이혜택 자세히보기 가리기
+
+$('.naver-membership-detail').hide();
+
+$('#show-membership-detail').click(()=>{
+  $('.naver-membership-detail').fadeIn(400);
+})
+$('#close-membershipbox-button').click(()=>{
+  $('.naver-membership-detail').fadeOut(400);
+})

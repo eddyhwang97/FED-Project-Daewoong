@@ -143,6 +143,7 @@
                     <div>
                       <h1>네이버 현대카드의</h1>
                       <h1>특별한 디자인을 소개합니다.</h1>
+                      <p>카드를 클릭해보세요!</p>
                     </div>
                     <div class="card-detail-grid">
                       <div class="view-card-detail card-detail1">
@@ -206,6 +207,7 @@
                     </div>
                     <div class="naver-membership-box">
                       <div class="box box-green">
+                        <i id="show-membership-detail" class="fa-solid fa-circle-plus" style="color: #cacaca;"></i>
                         <p>네이버 특화 혜택</p>
                         <p>네이버 플러스 멤버십</p>
                         <p>대상 가맹점 최대 5%</p>
@@ -216,6 +218,180 @@
                         <p>적립·한도 제한없이</p>
                         <p>1% 네이버페이</p>
                         <p>포인트 적립</p>
+                      </div>
+                    </div>
+                    <div class="naver-membership-detail">
+                      
+                      <div class="memebrship-contant-box">
+                        <i
+                        id="close-membershipbox-button"
+                        class="fa-solid fa-circle-xmark"
+                        style="color: #000"
+                      ></i>
+                        <h2>네이버페이 포인트 적립</h2>
+                        <section class="table-box">
+                          <h2>네이버페이 포인트 최대 5% 적립</h2>
+                          <table>
+                            <caption>
+                              네이버페이 포인트 적립 - 구분 ,적립률 ,적립한도
+                              항목으로 구성된 표 입니다.
+                            </caption>
+                            <colgroup>
+                              <col width="30%" />
+                              <col width="30%" />
+                              <col width="20%" />
+                              <col width="20%" />
+                            </colgroup>
+                            <thead>
+                              <tr>
+                                <th class="alC" colspan="2">구분</th>
+                                <th class="alC">적립률</th>
+                                <th class="alC">적립한도</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr>
+                                <td class="alC alM" rowspan="2">
+                                  네이버플러스 멤버십<br />적립 대상<br />(<span
+                                    class="logo_npayplus"
+                                  ></span
+                                  >)
+                                </td>
+                                <td class="alC">네이버플러스 멤버십 회원</td>
+                                <td class="alC">5%</td>
+                                <td class="alC alM" rowspan="2">
+                                  월 이용금액<br />20만원 한도
+                                </td>
+                              </tr>
+                              <tr>
+                                <td class="alC">네이버플러스 멤버십 비회원</td>
+                                <td class="alC">1%</td>
+                              </tr>
+                              <tr>
+                                <td class="alC">그 외 가맹점</td>
+                                <td class="alC">-</td>
+                                <td class="alC">1%</td>
+                                <td class="alC">제한 없음</td>
+                              </tr>
+                            </tbody>
+                          </table>
+                          <li>
+                            네이버플러스 멤버십 회원이 네이버플러스 멤버십 적립
+                            대상에서 결제 시 네이버페이 포인트 최대 5% 적립
+                          </li>
+                          <ul class="dash_list">
+                            <li>
+                              네이버플러스 멤버십 회원이 네이버플러스 멤버십
+                              적립 대상에서 결제 시 네이버페이 포인트 최대 5%
+                              적립
+                            </li>
+                            <li>
+                              네이버플러스 멤버십 적립 대상이란, 네이버를 통해
+                              네이버페이로 결제한 상품서비스 중 결제하기
+                              페이지에 네이버플러스 멤버십 적립 대상 아이콘이
+                              있는 주문건을 말함
+                              <ul class="bul_list">
+                                <li>
+                                  단,상품을 결제하더라도
+                                  유가증권(상품권,기프티콘 등)이거나 무이자 할부
+                                  이용 건 등은 적립 불가(적립 제외 대상은 아래
+                                  유의사항에서 확인 가능)
+                                </li>
+                                <li class="fw_bold">
+                                  월 적립 한도 초과 후 혜택 적용된 결제 건을
+                                  취소할 경우, 한도 초과로 혜택이 적용되지 않은
+                                  이전 결제 건에 대해 다음 달 15일경 혜택
+                                  적용(월 적립 한도 이내)
+                                </li>
+                                <!-- 2024-10-15 Q11139 수정 -->
+                                <li class="fw_bold">
+                                  네이버플러스 멤버십 비회원이 네이버플러스
+                                  멤버십 적립 대상 결제 시 1% 적립 혜택이
+                                  적용되는 승인 건도 월 이용금액 20만원
+                                  적립한도가 적용됨
+                                </li>
+                              </ul>
+                            </li>
+                            <li>
+                              네이버플러스 멤버십 적립 대상 외 국내외 가맹점에서
+                              결제 시 1% 적립
+                              <ul class="bul_list">
+                                <li>적립한도 제한 없음</li>
+                              </ul>
+                            </li>
+                          </ul>
+                        </section>
+                        <div class="box_bg_gray">
+                          <div class="card_bundle">
+                            <div class="box_title">
+                              <p>유의사항</p>
+                            </div>
+                            <ul class="dash_list">
+                              <li class="fw_bold">
+                                전월 이용금액 30만원 미만 시 다음 달 혜택 미제공
+                              </li>
+                              <li>
+                                최초 신규 발급 시 발급월 기준 다음 달 이용
+                                건까지는 전월 이용금액 30만원 미만도 혜택 제공
+                              </li>
+                              <li>
+                                전월 이용금액 산정 기준은 '적립서비스 제공 기준'
+                                참고
+                              </li>
+                              <li class="fw_bold">
+                                5% 적립 혜택은 네이버플러스 멤버십 회원에 한해
+                                제공
+                                <ul class="bul_list">
+                                  <li class="fw_bold">
+                                    비회원인 경우 네이버플러스 멤버십 적립 대상
+                                    상품 결제 시 1% 적립
+                                  </li>
+                                  <li class="fw_bold">
+                                    멤버십 해지 시 해지일 기준 다음 날 승인
+                                    건부터는 네이버플러스 멤버십 적립 대상 상품
+                                    구매 시에도 1% 적립률 적용
+                                  </li>
+                                </ul>
+                              </li>
+                              <li class="fw_bold">
+                                아래의 경우, 네이버플러스 멤버십 적립 대상이어도
+                                그 외 가맹점으로 분류되어 1% 적립률 적용
+                                <ul class="bul_list">
+                                  <li class="fw_bold">
+                                    네이버를 통해 네이버 외 쇼핑몰에 접속 후
+                                    25시간이 경과한 경우
+                                  </li>
+                                  <li class="fw_bold">
+                                    주문서 작성 후 해당 페이지에서 25시간 경과
+                                    후 결제하는 경우
+                                  </li>
+                                </ul>
+                              </li>
+                              <li class="fw_bold">
+                                네이버플러스 멤버십 적립 대상 분류는 제휴사
+                                기준에 따름
+                              </li>
+                              <li>
+                                네이버페이 포인트는 영업일 기준 다음 달 15일에
+                                적립
+                              </li>
+                              <li class="fw_bold">
+                                현대카드의 모든 할인서비스를 이용한 금액(할인
+                                적용된 매출 총 금액) 및 무이자할부 이용 금액은
+                                적립 혜택 제외
+                              </li>
+                              <li class="fw_bold">
+                                국제브랜드 수수료 및 해외서비스 수수료는 전월
+                                이용금액에 포함되지 않음
+                              </li>
+                              <li class="fw_bold">
+                                해외 가맹점 이용 시 별도의 수수료가 부과되니,
+                                국제브랜드 수수료 관련 자세한 내용은 ‘카드 이용
+                                유의사항’ 참고
+                              </li>
+                            </ul>
+                          </div>
+                        </div>
                       </div>
                     </div>
                   </div>

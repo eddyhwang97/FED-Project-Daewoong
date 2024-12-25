@@ -264,7 +264,7 @@
 }
 
 /* 메인카드 영역 */
-.card-box{
+.card-box {
   perspective: 1000px;
   position: absolute;
   width: var(--main-card-width);
@@ -275,7 +275,6 @@
 
   transform-style: preserve-3d;
   transition: 0.5s;
-
 }
 
 .card {
@@ -286,11 +285,10 @@
   justify-items: center;
 
   rotate: y 0;
-  transition: .5s;
+  transition: 0.5s;
   border-radius: 1rem;
 
-  box-shadow: 0 0 10px #000;  
-
+  box-shadow: 0 0 10px #000;
 }
 /* 카드 앞면 */
 .card-front {
@@ -326,19 +324,19 @@
 
 /* 카드위치 조정 */
 /* 첫번째 카드 */
-.card-box .card:nth-child(1){
+.card-box .card:nth-child(1) {
   left: 400%;
 }
 /* 센터카드 */
-.card-box .card:nth-child(2){
+.card-box .card:nth-child(2) {
   left: 0;
 }
 /* 세번째 카드 */
-.card-box .card:nth-child(3){
+.card-box .card:nth-child(3) {
   left: -400%;
 }
 /* 네번째 카드 */
-.card-box .card:nth-child(4){
+.card-box .card:nth-child(4) {
   left: -400%;
 }
 
@@ -503,6 +501,9 @@
 }
 .card-part1 h1 {
   font-size: 4rem;
+}
+.card-part1 p {
+  font-size: 2rem;
 }
 
 /* .overlay-box .card-part1 img {
@@ -1216,4 +1217,82 @@
   display: block;
   border: 1px solid #fff;
   height: 32px;
+}
+
+/* ==============멤버십 박스 추가=============== */
+#show-membership-detail {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  font-size: 2.5rem;
+  cursor: pointer;
+}
+
+.naver-membership-detail {
+  position: absolute;
+  top: 55%;
+  left: 50%;
+  translate: -50% -50%;
+}
+#close-membershipbox-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 2.5rem;
+  cursor: pointer;
+  z-index: 5;
+}
+.memebrship-contant-box {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  translate: -50% -50%;
+
+  width: min(850px, 100vw);
+  height: 80vh;
+  background: #fff;
+  border-radius: 1rem;
+
+  /* justify-items: center; */
+  padding: 20px 100px;
+  box-sizing: border-box;
+  box-shadow: 0 0 10px #000;
+
+  overflow: hidden;
+  overflow-y: scroll;
+}
+
+.memebrship-contant-box h2 {
+  font-size: 3rem;
+}
+.table-box {
+  border-top: 2px solid #000;
+}
+.table-box th,
+.table-box td {
+  border-bottom: 1px solid #757575;
+  padding: 16px 24px;
+}
+
+.alC {
+  font-size: 1.6rem;
+}
+.logo_npayplus {
+  display: inline-block;
+  width: 60px;
+  height: 19px;
+  background: url(../imgs/card_detail_img/img_npayplus.png) no-repeat
+    center/100%;
+}
+.dash_list li {
+  font-size: 1.6rem;
+}
+.box_title p {
+  font-size: 1.6rem;
+}
+.box_bg_gray {
+  margin-top: 40px;
+  padding: 24px;
+  background: #fafafa;
+  border-radius: 1rem;
 }
