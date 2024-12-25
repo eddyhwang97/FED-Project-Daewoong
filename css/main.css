@@ -1296,3 +1296,21 @@
   background: #fafafa;
   border-radius: 1rem;
 }
+
+
+.try-click{
+  position: absolute;
+  bottom: 10%;
+  left: 50%;
+  translate: -50%;
+}
+.try-click p{
+  font-size: 2rem;
+  font-weight: bold;
+  animation: neon .5s linear alternate infinite;
+}
+@keyframes neon {
+  to{
+    text-shadow: 0 0 4px rgb(80, 75, 75);
+  }
+}

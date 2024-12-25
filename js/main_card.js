@@ -29,6 +29,7 @@ $navArea.eq(0).click(function () {
 // 카드 뒤집고 카드 디테일페이지 보이기/////////////
 $cardBox.children($card).click(function () {
   console.log(this);
+  $('.hd-logo').css({zIndex: 0})
 
   // 카드 뒤집기
   $(this).css({
@@ -66,6 +67,7 @@ $("#top-close-button").click(function () {
         rotate: "y 0deg",
         transition: ".5s",
       });
+      $('.hd-logo').css({zIndex: 1})
       $navArea.show(500);
     }); ///$card css ////
 });
