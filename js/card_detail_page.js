@@ -2,6 +2,11 @@
 import myFn from "./my_function.js";
 
 // console.log("card_detail_page", myFn);
+// 카드 이미지 data
+import { CardImgData } from "./data/card_img_data.js"
+
+// 카드 디테일 페이지 data
+import { CardDetailPageData } from "./data/card_img_data.js"
 
 // ///////선택된 카드 바꾸는 기능
 // // 카드 객체 값\
