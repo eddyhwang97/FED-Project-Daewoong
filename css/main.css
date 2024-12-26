@@ -907,16 +907,15 @@
 .sticky-area {
   position: absolute;
   top: 9.4%;
-  left: 21%;
-  translate: -50%;
-  max-width: 385px;
+  left: 1%;
+  width: 385px;
   height: 80%;
   z-index: 10;
 }
 .stickybar {
   position: sticky;
   top: 1%;
-  max-width: min(385px, 41vw);
+  /* max-width: min(385px, 41vw); */
   max-height: 50px;
   border-radius: 3rem;
 }
@@ -924,14 +923,15 @@
   height: 100%;
   list-style: none;
   display: flex;
-  justify-content: space-evenly;
+  justify-content: flex-start;
   align-items: center;
-  gap: 10px;
+  gap: 11px;
 }
 .stickybar li:hover {
   background-color: #cccccc;
 }
 .stickybar li {
+  width: auto;
   font-size: 2rem;
   padding: 8px;
   border-radius: 3rem;
