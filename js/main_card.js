@@ -16,10 +16,10 @@ const $hoverArea = $(".hover-area");
 // nav-area 넘치는 요소 숨기기
 $(".card-nav-area").css({ overflow: "hidden" });
 
-// 다음 이전 카드보기 //////////////
+// 다음 카드보기 //////////////
 $navArea.eq(1).click(function () {
   $cardBox.append($cardBox.children($card).first());
-}); // 다음 이전 카드보기 //////////////
+}); // 다음 카드보기 //////////////
 
 // 이전 카드보기 //////////////
 $navArea.eq(0).click(function () {
@@ -126,3 +126,10 @@ $("#top-close-button").click(function () {
       $navArea.show(500);
     }); ///$card css ////
 });
+
+
+// 카드에 고유넘버 부여
+
+$cardBox.children($card).each(function(idx,el){                           
+  $(this).attr('data-card-number', idx)
+})
