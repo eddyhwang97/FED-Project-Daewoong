@@ -26,6 +26,61 @@ $navArea.eq(0).click(function () {
   $cardBox.prepend($cardBox.children($card).last());
 }); // 이전 카드보기 //////////////
 
+// $navArea 오버시 배경 색 변경 및 카드 움직임 ////////////
+// next area mouseover /////
+$navArea.eq(1).mouseover(function () {
+  $hoverArea.eq(1).css({
+    backgroundColor: "#ee554d",
+    transition: ".2s",
+  });
+  // // 카드 움직임
+  // $card.eq(1).css({
+  //   left: "50%",
+  //   rotate: "y 30deg",
+  // });
+  // mouseleave ///
+  $(this).mouseleave(() => {
+    $hoverArea.eq(1).css({
+      backgroundColor: "",
+      transition: ".2s",
+    });
+    // $card.eq(1).css({
+    //   left: "0",
+    //   rotate: "y 0deg",
+    // });
+  }); // mouseleave ///
+
+
+  
+}); // next area mouseover /////
+
+// prev area mouseover /////
+$navArea.eq(0).mouseover(function () {
+  $hoverArea.eq(0).css({
+    backgroundColor: "#4d63ee",
+    transition: ".2s",
+  });
+  // 카드 움직임
+  // $card.eq(1).css({
+  //   left: "-50%",
+  //   rotate: "y -30deg",
+  // });
+  // mouseleave ///
+  $(this).mouseleave(() => {
+    $hoverArea.eq(0).css({
+      backgroundColor: "",
+      transition: ".2s",
+    });
+    // $card.eq(1).css({
+    //   left: "0",
+    //   rotate: "y 0deg",
+    // }); // mouseleave /
+  });
+
+  //
+});
+// $navArea 오버시 배경 색 변경 및 카드 움직임 ////////////
+
 // 카드 뒤집고 카드 디테일페이지 보이기/////////////
 $cardBox.children($card).click(function () {
   console.log(this);
@@ -71,55 +126,3 @@ $("#top-close-button").click(function () {
       $navArea.show(500);
     }); ///$card css ////
 });
-
-// $navArea 오버시 배경 색 변경 및 카드 움직임 ////////////
-// next area mouseover /////
-$navArea.eq(1).mouseover(function () {
-  $hoverArea.eq(1).css({
-    backgroundColor: "#ee554d",
-    transition: ".2s",
-  });
-  // // 카드 움직임
-  // $card.eq(1).css({
-  //   left: "50%",
-  //   rotate: "y 30deg",
-  // });
-  // mouseleave ///
-  $(this).mouseleave(() => {
-    $hoverArea.eq(1).css({
-      backgroundColor: "",
-      transition: ".2s",
-    });
-    // $card.eq(1).css({
-    //   left: "0",
-    //   rotate: "y 0deg",
-    // });
-  }); // mouseleave ///
-}); // next area mouseover /////
-
-// prev area mouseover /////
-$navArea.eq(0).mouseover(function () {
-  $hoverArea.eq(0).css({
-    backgroundColor: "#4d63ee",
-    transition: ".2s",
-  });
-  // 카드 움직임
-  // $card.eq(1).css({
-  //   left: "-50%",
-  //   rotate: "y -30deg",
-  // });
-  // mouseleave ///
-  $(this).mouseleave(() => {
-    $hoverArea.eq(0).css({
-      backgroundColor: "",
-      transition: ".2s",
-    });
-    // $card.eq(1).css({
-    //   left: "0",
-    //   rotate: "y 0deg",
-    // }); // mouseleave /
-  });
-
-  //
-});
-// $navArea 오버시 배경 색 변경 및 카드 움직임 ////////////
