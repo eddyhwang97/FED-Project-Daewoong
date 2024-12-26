@@ -325,7 +325,7 @@
 /* 카드위치 조정 */
 /* 첫번째 카드 */
 .card-box .card:nth-child(1) {
-  left: 400%;
+  left: 500%;
 }
 /* 센터카드 */
 .card-box .card:nth-child(2) {
@@ -333,11 +333,11 @@
 }
 /* 세번째 카드 */
 .card-box .card:nth-child(3) {
-  left: -400%;
+  left: -500%;
 }
 /* 네번째 카드 */
 .card-box .card:nth-child(4) {
-  left: -400%;
+  left: -500%;
 }
 
 /* ========================================================
