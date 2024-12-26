@@ -359,13 +359,16 @@
 2. 카드 소개페이지 
 ==================*/
 /* 카드소개페이지 공통 부분 */
+.close-button-area{
+  position: sticky;
+    top: 0%;
+    translate: 99%;
+    height: auto;
+}
 #top-close-button {
-  position: absolute;
-  top: 10px;
-  right: 10px;
   font-size: 2.5rem;
   cursor: pointer;
-  z-index: 5;
+  /* z-index: 5; */
 }
 .sub-wrap-box {
   background-color: #eeeeee;

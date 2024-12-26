@@ -251,15 +251,6 @@ function moveTo() {
   // });
 
   // 닫기버튼 색 변하기
-  chCloseBtn();
-
-  function chCloseBtn() {
-    if ($(".wrap").scrollTop() < 580)
-      $(".close-stick-area>i").attr("style", "color : #fff");
-    else if ($(".wrap").scrollTop() > 580) {
-      $(".close-stick-area>i").attr("style", "color : #000");
-    }
-  }
 
   $goScr.each((idx, el) => {
     $(el).click(function () {
