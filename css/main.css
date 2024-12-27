@@ -10,6 +10,15 @@
 @import url(./grid_12_flex.css);
 @import url(./root.css);
 @import url(./main-ani.css);
+
+
+/* 카드 디테일 페이지 CSS모음 */
+@import url(./detailpage/naver-detail-page.css);
+@import url(./detailpage/musinsa-detail-page.css);
+@import url(./detailpage/starbucks-detail-page.css);
+@import url(./detailpage/naver-detail-page.css);
+
+
 /*===================================================
 메인영역 
 ===================================================*/
@@ -360,15 +369,17 @@
 ==================*/
 /* 카드소개페이지 공통 부분 */
 .close-button-area{
-  position: sticky;
-    top: 0%;
-    translate: 99%;
-    height: auto;
+  position: absolute;
+  top: 0%;
+  right: 3%;
+  height: 3500px;
+  z-index: 5;
 }
 #top-close-button {
+  position: sticky;
   font-size: 2.5rem;
   cursor: pointer;
-  /* z-index: 5; */
+  top: 2%;
 }
 .sub-wrap-box {
   background-color: #eeeeee;

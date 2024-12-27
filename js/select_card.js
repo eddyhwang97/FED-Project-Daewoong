@@ -3,8 +3,6 @@ import myFn from "./my_function.js";
 
 // console.log("main_card.js");
 
-// .card-detial-page 숨기기
-$(".card-detail-page").hide();
 
 //////////////카드 넘기기 기능 /////////////
 const $cardBox = $(".card-box");
@@ -49,9 +47,6 @@ $navArea.eq(1).mouseover(function () {
     //   rotate: "y 0deg",
     // });
   }); // mouseleave ///
-
-
-  
 }); // next area mouseover /////
 
 // prev area mouseover /////
@@ -81,55 +76,3 @@ $navArea.eq(0).mouseover(function () {
 });
 // $navArea 오버시 배경 색 변경 및 카드 움직임 ////////////
 
-// 카드 뒤집고 카드 디테일페이지 보이기/////////////
-$cardBox.children($card).click(function () {
-  console.log(this);
-  $('.hd-logo').css({zIndex: 0})
-
-  // 카드 뒤집기
-  $(this).css({
-    rotate: "y 180deg",
-    transition: ".5s",
-  });
-
-  // 카드 디테일 페이지 열기
-  $(".card-detail-page")
-    .delay(500)
-    .show(0, function () {
-      // console.log(this)
-      $(this).css({
-        width: "min(1000px,96vw)",
-        height: "99vh",
-        transition: ".3s",
-        zIndex: 9999,
-      });
-      $navArea.hide();
-    });
-});
-
-// 디테일 페이지 닫기 //////
-$("#top-close-button").click(function () {
-  $(".card-detail-page")
-    .css({
-      width: "",
-      height: "",
-      transition: ".5s",
-      zIndex: 0,
-    }) ///디테일페이지 css ///
-    .delay(500)
-    .fadeOut(0, () => {
-      $cardBox.children($card).css({
-        rotate: "y 0deg",
-        transition: ".5s",
-      });
-      $('.hd-logo').css({zIndex: 1})
-      $navArea.show(500);
-    }); ///$card css ////
-});
-
-
-// 카드에 고유넘버 부여
-
-$cardBox.children($card).each(function(idx,el){                           
-  $(this).attr('data-card-number', idx)
-})

@@ -6,6 +6,8 @@
 // startSS()호출
 // startSS();
 
+// insert_detial_page 불러오기
+
 // 로딩화면
 // 배경 요소 추가
 $("body").append(`

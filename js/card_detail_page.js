@@ -3,10 +3,7 @@ import myFn from "./my_function.js";
 
 // console.log("card_detail_page", myFn);
 // 카드 이미지 data
-import { CardImgData } from "./data/card_img_data.js"
 
-// 카드 디테일 페이지 data
-import { CardDetailPageData } from "./data/card_img_data.js"
 
 // ///////선택된 카드 바꾸는 기능
 // // 카드 객체 값\
@@ -134,41 +131,6 @@ $("#close-button").click(() => {
   $(".mySwiper").fadeOut(400);
 });
 
-// '.view-card-detail 클릭시 span 값 불러오기
-// $(".view-card-detail").click(function () {
-
-
-  // text 값 불러오기
-
-  // let txt = "";
-
-  // // txt값 할당하기
-  // txt = $(this, "span").text().trim().toLowerCase();
-  // console.log(txt);
-
-  // // txt 값 넣기
-  // $(".card-name-sec p").first().text(txt);
-
-  // // txt 값에 따라 이미지 넣기
-
-  
-  //     $(".card-detail-sec-fornt").find("img").attr("src", popCard[txt][0]);
-  //     $(".card-detail-sec-back").find("img").attr("src", popCard[txt][1]);
-
-  //  스위치문 이용하여 값 넣기
-  // switch (txt) {
-  //   case Graffiti:
-  //     $(".card-detail-sec-fornt").find("img").attr("src");
-  //     $(".card-detail-sec-back").find("img").attr("src", popCard.Graffiti[0]);
-  //     break;
-  // }
-  // console.log(popCard.Graffiti[0]);
-
-  // 팝업 보이기
-  // $(".select-card-popup").fadeIn(400);
-// });
-
-// 네이버 페이혜택 자세히보기 가리기
 
 $('.naver-membership-detail').hide();
 
@@ -178,3 +140,5 @@ $('#show-membership-detail').click(()=>{
 $('#close-membershipbox-button').click(()=>{
   $('.naver-membership-detail').fadeOut(400);
 })
+
+

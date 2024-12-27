@@ -1,7 +1,7 @@
 // 카드 이미지 data - card_img_data.js
 
 
-let CardImgData = {
+const CardImgData = {
   // 네이버
   naver: {
     graffiti: [
@@ -36,12 +36,12 @@ let CardImgData = {
   },
   // 무신사
   musinsa: {
-    graffiti: [
+    1: [
       "./imgs/musinsacard/img_musinsacard_1.png",
       "./imgs/musinsacard/img_musinsacard_back_1.png",
     ],
 
-    line: [
+    2: [
       "./imgs/musinsacard/img_musinsacard_2.png",
       "./imgs/musinsacard/img_musinsacard_back_2.png",
     ],
