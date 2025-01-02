@@ -9,7 +9,9 @@ import CardDetailPageData from "./data/card_detail_page_data.js";
 const CDPVal = Object.values(CardDetailPageData);
 const CDPArr = Object.keys(CardDetailPageData);
 const CIDArr = Object.keys(CardImgData);
-console.log(CDPVal,CDPArr,CIDArr);
+// console.log(CDPVal,CDPArr,CIDArr);
+
+console.log(CardImgData[CIDArr[0]][0][0])
 // 대상 선정
 // 1. 카드 박스 .card-box
 const $cardBox = $(".card-box");
@@ -38,16 +40,16 @@ $cardBox.children($card).each(function (idx, el) {
 
     // 카드에 맞는 디테일 페이지 값 넣기
     if (idN == 0) {
-      $(".main-card").prepend(CDPVal[idN], cdpView());
+      $(".main-card").prepend(CDPVal[idN], cdpView(idN));
     } else if (idN == 1) {
-      $(".main-card").prepend(CDPVal[idN], cdpView());
+      $(".main-card").prepend(CDPVal[idN], cdpView(idN));
     } else if (idN == 2) {
-      $(".main-card").prepend(CDPVal[idN], cdpView());
+      $(".main-card").prepend(CDPVal[idN], cdpView(idN));
     } else if (idN == 3) {
-      $(".main-card").prepend(CDPVal[idN], cdpView());
+      $(".main-card").prepend(CDPVal[idN], cdpView(idN));
     }
 
-    function cdpView() {
+    function cdpView(idN) {
       $cardBox.delay(600).show(0, () => {
         $(".card-detail-page").css({
           width: "1000px",
@@ -55,13 +57,26 @@ $cardBox.children($card).each(function (idx, el) {
           transition: ".5s",
           zIndex: 9999,
         });
+        // 그리드 카드 배경 넣기
+        $('.view-card-detail').each((i,el)=>{
+          console.log(idN,el,i)
+          if(idN == 1){
+            // console.log(CardImgData[CIDArr[idN]][i][0])
+            $(el).attr('src','CardImgData[CIDArr[idN]][i][0]')
+          }
+        })
+
+
+        // 뒷 배경 숩기기
         $navArea.hide();
       });
     } ////cdpView /////////
 
+
     // 팝업창 설정 /////////
     // .select-card-popup //////////
     $(".select-card-popup").hide();
+    $(".memebrship-contant-box").hide();
 
     $(".view-card-detail").click(() => {
       console.log("hi");

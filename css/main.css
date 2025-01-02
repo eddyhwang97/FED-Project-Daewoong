@@ -565,9 +565,10 @@
   width: 230px;
   height: 360px;
   border-radius: 1rem;
+  background: no-repeat center/100%;
 }
 /* 그리드 카드 이미지 */
-.card-detail1 {
+/* .card-detail1 {
   background: url(../imgs/navercard/img_navercard_1.png) no-repeat center/100%;
 }
 .card-detail2 {
@@ -584,7 +585,7 @@
 }
 .card-detail6 {
   background: url(../imgs/navercard/img_navercard_6.png) no-repeat center/100%;
-}
+} */
 /************* 선택카드 디테일 팝업페이지 *************/
 
 /* 디테일 팝업페이지 배경 */

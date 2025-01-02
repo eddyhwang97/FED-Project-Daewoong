@@ -1,3 +1,6 @@
+
+import CardImgData from "./card_img_data.js"
+
 const CardDetailPageData = {
   nexon: `<div class="sub-wrap-box card-detail-page">
                 <div class="close-button-area">
