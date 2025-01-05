@@ -1952,12 +1952,12 @@ const CardDetailPageData = {
           <p>플라스틱플레이트</p>
         </section>
         <section class="card-detail-sec">
-          <div class="card-detail-sec-fornt">
-           <img src="">
+          <div class="card-detail-sec-front">
+           <img>
             <aside>-앞면-</aside>
           </div>
           <div class="card-detail-sec-back">
-          <img src="">
+          <img>
             <aside>-뒷면-</aside>
           </div>
         </section>

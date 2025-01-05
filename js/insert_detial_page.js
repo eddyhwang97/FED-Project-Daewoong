@@ -11,7 +11,7 @@ const CDPArr = Object.keys(CardDetailPageData);
 const CIDArr = Object.keys(CardImgData);
 // console.log(CDPVal,CDPArr,CIDArr);
 
-console.log(CardImgData[CIDArr[0]][0][0])
+console.log(CardImgData[CIDArr[0]][0][0]);
 // 대상 선정
 // 1. 카드 박스 .card-box
 const $cardBox = $(".card-box");
@@ -51,27 +51,24 @@ $cardBox.children($card).each(function (idx, el) {
 
     function cdpView(idN) {
       $cardBox.delay(600).show(0, () => {
+        // card-detail-page css /////
         $(".card-detail-page").css({
           width: "1000px",
           height: "99vh",
           transition: ".5s",
           zIndex: 9999,
         });
-        // 그리드 카드 배경 넣기
-        $('.view-card-detail').each((i,el)=>{
-          console.log(idN,el,i)
-          if(idN == 1){
-            // console.log(CardImgData[CIDArr[idN]][i][0])
-            $(el).attr('src','CardImgData[CIDArr[idN]][i][0]')
-          }
-        })
 
+        // 그리드 카드 이미지 넣기
+        $(".view-card-detail").each((i, el) => {
+          // console.log(idN,el,i)
+          $(el).css({ background: "url(" + CardImgData[CIDArr[idN]][i][0] + ") no-repeat center/100%" });
+        });
 
         // 뒷 배경 숩기기
         $navArea.hide();
       });
     } ////cdpView /////////
-
 
     // 팝업창 설정 /////////
     // .select-card-popup //////////
@@ -79,21 +76,22 @@ $cardBox.children($card).each(function (idx, el) {
     $(".memebrship-contant-box").hide();
 
     $(".view-card-detail").click(() => {
-      console.log("hi");
+      // console.log();
       // 팝업창 넣기
       $(".swiper-slide").html(CardDetailPageData.cardPopup);
+      // 팝업창 카드 이미지 넣기
+
       // 팝업창 나타나기
       $(".select-card-popup").fadeIn();
       // 팝업창 닫기
       $("#close-button").click(() => {
         $(".select-card-popup").fadeOut();
-      })
-
-
+      });
 
       // 클릭된 요소의 순번
       let seq = $(event.currentTarget).index();
-      // console.log(seq);
+      // console.log(idN, seq);
+      // 팝업창 카드 이미지 넣기
 
       // 스와이퍼 API
       // 처음 열때 인댁싱 파일 지정필수
@@ -101,6 +99,19 @@ $cardBox.children($card).each(function (idx, el) {
 
       // 그 후 이동시 이동함수 필수
       swiper.slideTo(seq, 0);
+      $(".card-detail-sec")
+        .find(".card-detail-sec-back img")
+        .each((i, e) => {
+          $(e).css({
+            background: "url(" + CardImgData[CIDArr[idN]][i][1] + ") no-repeat center/100%",
+          });
+        })
+        .parents().find(".card-detail-sec-front img")
+        .each((i, e) => {
+          $(e).css({
+            background: "url(" + CardImgData[CIDArr[idN]][i][0] + ") no-repeat center/100%",
+          });
+        });
     }); ////// view card 클릭 -> 팝업창 //////////
 
     // // <!-- Initialize Swiper --> /////////////

@@ -565,7 +565,6 @@
   width: 230px;
   height: 360px;
   border-radius: 1rem;
-  background: no-repeat center/100%;
 }
 /* 그리드 카드 이미지 */
 /* .card-detail1 {
@@ -1150,7 +1149,7 @@
   font-weight: bold;
 }
 /* 카드 이미지 앞면 */
-.card-detail-sec-fornt img {
+.card-detail-sec-front img {
   position: relative;
   width: 170px;
   height: 270px;
