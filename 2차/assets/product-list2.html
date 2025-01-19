@@ -24,7 +24,7 @@
     <script src="./js/layout.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
     <!-- <script type="module" src="./js/product_list2.js"></script> -->
-    <script type="module" src="./js/vuex_list.js"></script>
+    <script type="module" src="./js/product_list_vue.js"></script>
     <!-- JS e -->
   </head>
   <body>
@@ -222,7 +222,19 @@
       <div class="sub-container" id="main">
         <!-- sub-top s -->
         <!-- 없는 페이지에서는 sub-top 지워주세요!!!! -->
-        <category-comp></category-comp>
+        <div class="sub-top">
+          <div class="inner">
+            <div class="sub-title" v-for="(val,key) in tabLinkData">
+              {{key}}
+              <ul class="category-tab">
+                <li class="" v-for="(n,k) in val">
+                  <!-- <a href="#">{{k}}</a> -->
+                   <router-link v-bind:to='n.link'>{{k}}</router-link>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
         <!-- sub-top e -->
         <!-- contents s -->
         <div class="contents">
