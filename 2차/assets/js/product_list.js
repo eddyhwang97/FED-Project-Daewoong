@@ -44,6 +44,7 @@ const SubTopComp={
 
 const ProductListComp={
   template:`
+  <div class="contents">
   <div class="product-list-area">
     <ul class="product-list-wrap">
       <li class="product-select-box">
@@ -72,6 +73,7 @@ const ProductListComp={
         </a>
       </li>
     </ul>
+  </div>
   </div>
   `,
   data(){
